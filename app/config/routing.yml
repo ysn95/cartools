@@ -1,0 +1,24 @@
+app:
+    resource: '@AppBundle/Controller/'
+    type: annotation
+
+recambios:
+    path:     /
+    defaults: { _controller: "AppBundle:Default:index" }
+    
+recambios_productos:
+    path:     /recambios-productos
+    defaults: { _controller: "AppBundle:Default:recambios" }
+    
+registro_usuario:
+    path:    /registro
+    defaults: { _controller: "AppBundle:Registro:registroUsuario" }
+    
+
+login_usuario:
+    path:    /login
+    defaults: { _controller: "AppBundle:Login:log" }
+    
+logout:
+    path: /logout
+    defaults:

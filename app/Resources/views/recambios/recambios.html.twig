@@ -1,0 +1,27 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Recambios list</h1>
+
+        {% for recambio in datos %}
+
+            <div style="width:50%;margin-top:5%; margin-left:25%; padding:4%; border:1px solid black;">
+                <p><a style="text-decoration:underline; color:black;" href="{{ path('recambios_show', { 'id': recambio.id }) }}"><h2 style="text-transform: uppercase;">{{ recambio.marca }}</h2></a><p>
+                
+                <p style="width:20%; float:left; margin-top:4%; font-size:20px;width:50%;">{{recambio.contenido}}
+                <br><br>{% if recambio.fechaVenta %}{{ recambio.fechaVenta|date('Y-m-d H:i:s') }}{% endif %}<p>
+               
+                <img style="width:30%; margin-left:20%;border" src="{{asset("imagen/" ~ recambio.img)}}"/>
+            </div>
+                
+        {% endfor %}
+
+        
+           
+        
+        
+        
+        
+        
+{% endblock %}
+{# empty Twig template #}

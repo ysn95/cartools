@@ -1,0 +1,4 @@
+app_alquiler:
+    resource: "@AppBundle/Resources/config/routing/alquiler.yml"
+    prefix:   /alquiler
+

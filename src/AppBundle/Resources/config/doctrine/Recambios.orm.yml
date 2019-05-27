@@ -1,0 +1,46 @@
+AppBundle\Entity\Recambios:
+    type: entity
+    table: recambios
+    uniqueConstraints:
+        fecha_venta:
+            columns:
+                - fecha_venta
+    id:
+        id:
+            type: integer
+            nullable: false
+            options:
+                unsigned: true
+            id: true
+            generator:
+                strategy: IDENTITY
+    fields:
+        nombre:
+            type: string
+            nullable: false
+            length: 50
+            options:
+                fixed: false
+        contenido:
+            type: text
+            nullable: false
+            length: 65535
+            options:
+                fixed: false
+        marca:
+            type: string
+            nullable: false
+            length: 50
+            options:
+                fixed: false
+        fechaVenta:
+            type: datetime
+            nullable: false
+            column: fecha_venta
+        img:
+            type: string
+            nullable: false
+            length: 10
+            options:
+                fixed: false
+    lifecycleCallbacks: {  }

@@ -1,0 +1,39 @@
+AppBundle\Entity\User:
+    type: entity
+    table: user
+    id:
+        id:
+            type: integer
+            nullable: false
+            options:
+                unsigned: true
+            id: true
+            generator:
+                strategy: IDENTITY
+    fields:
+        nombre:
+            type: string
+            nullable: false
+            length: 50
+            options:
+                fixed: false
+        email:
+            type: text
+            nullable: false
+            length: 65535
+            options:
+                fixed: false
+        password:
+            type: text
+            nullable: false
+            length: 65535
+            options:
+                fixed: false
+        rol:
+            type: string
+            nullable: false
+            length: 50
+            options:
+                fixed: false
+                default: ROLE_USER
+    lifecycleCallbacks: {  }

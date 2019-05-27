@@ -1,0 +1,35 @@
+AppBundle\Entity\Comprar:
+    type: entity
+    table: comprar
+    indexes:
+        fkk_id_recambios:
+            columns:
+                - id_recambios
+    id:
+        id:
+            type: integer
+            nullable: false
+            options:
+                unsigned: true
+            id: true
+            generator:
+                strategy: IDENTITY
+    fields:
+        estado:
+            type: string
+            nullable: false
+            length: 50
+            options:
+                fixed: false
+    manyToOne:
+        idRecambios:
+            targetEntity: Recambios
+            cascade: {  }
+            fetch: LAZY
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                id_recambios:
+                    referencedColumnName: id
+            orphanRemoval: false
+    lifecycleCallbacks: {  }

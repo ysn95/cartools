@@ -1,0 +1,58 @@
+AppBundle\Entity\Inventario:
+    type: entity
+    table: inventario
+    indexes:
+        id_recambios:
+            columns:
+                - id_recambios
+        fk_id_user:
+            columns:
+                - id_usuario
+        unic_fecha_venta:
+            columns:
+                - fecha_venta
+    id:
+        id:
+            type: integer
+            nullable: false
+            options:
+                unsigned: true
+            id: true
+            generator:
+                strategy: IDENTITY
+    fields:
+        idRecambios:
+            type: integer
+            nullable: false
+            options:
+                unsigned: true
+            column: id_recambios
+        estado:
+            type: string
+            nullable: false
+            length: 50
+            options:
+                fixed: false
+                default: activo
+    manyToOne:
+        idUsuario:
+            targetEntity: User
+            cascade: {  }
+            fetch: LAZY
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                id_usuario:
+                    referencedColumnName: id
+            orphanRemoval: false
+        fechaVenta:
+            targetEntity: Recambios
+            cascade: {  }
+            fetch: LAZY
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                fecha_venta:
+                    referencedColumnName: fecha_venta
+            orphanRemoval: false
+    lifecycleCallbacks: {  }

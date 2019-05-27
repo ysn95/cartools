@@ -1,0 +1,47 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Recambios list</h1>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Nombre</th>
+                <th>Contenido</th>
+                <th>Marca</th>
+                <th>Fechaventa</th>
+                <th>Img</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for recambio in recambios %}
+            <tr>
+                <td><a href="{{ path('recambios_show', { 'id': recambio.id }) }}">{{ recambio.id }}</a></td>
+                <td>{{ recambio.nombre }}</td>
+                <td>{{ recambio.contenido }}</td>
+                <td>{{ recambio.marca }}</td>
+                <td>{% if recambio.fechaVenta %}{{ recambio.fechaVenta|date('Y-m-d H:i:s') }}{% endif %}</td>
+                <td>{{ recambio.img }}</td>
+                <td>
+                    <ul>
+                        <li>
+                            <a href="{{ path('recambios_show', { 'id': recambio.id }) }}">show</a>
+                        </li>
+                        <li>
+                            <a href="{{ path('recambios_edit', { 'id': recambio.id }) }}">edit</a>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('recambios_new') }}">Create a new recambio</a>
+        </li>
+    </ul>
+{% endblock %}
