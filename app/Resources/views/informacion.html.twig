@@ -1,0 +1,120 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+
+
+    <!--BARRA NAVEGACIÓN-->          
+
+    <nav id="ali_nav" class="navbar fixed-top navbar-expand-lg navbar-light">
+        <a class="navbar-brand" href="/cartools/web/app_dev.php"><img id="logo" src="{{asset('logo.png')}}"/></a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div id="ali_pesta">    
+            <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
+                <ul class="navbar-nav mr-auto">
+                    <li id="b_navbar"  class="nav-item">
+                        <a class="nav-link" href="/cartools/web/app_dev.php"><i id="iconos" class="fas fa-home"></i>INICIO</a>
+                    </li>
+
+                    <li id="b_navbar" class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <i id="iconos" class="fas fa-tools"></i>PRODUCTOS
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <a class="dropdown-item" href="/cartools/web/app_dev.php/recambios-productos">Recambios</a>
+                            <a class="dropdown-item" href="/cartools/web/app_dev.php/alquiler/">Alquiler</a>
+                        </div>
+                    </li>
+                    <li id="b_navbar" class="nav-item">
+                        <a class="nav-link" href="/cartools/web/app_dev.php/contacto"><i id="iconos" class="fas fa-info-circle"></i>CONTACTO</a>
+                    </li>
+                    <li id="b_navbar" class="nav-item active">
+                        <a class="nav-link" href="/cartools/web/app_dev.php/informacion"><i id="iconos" class="fas fa-info-circle"></i>INFORMACIÓN</a>
+                    </li>
+                </ul>
+
+                <ul class="nav navbar-nav ml-auto mr-5">
+                    {% if app.user != null %}
+                        <div class="dropdown">
+                            <button style="font-size:16px; margin-left:100%; " type="button" class="btn btn-danger dropdown-toggle" data-toggle="dropdown">
+                                {{ app.user.username }}
+                            </button>
+                            <div style="margin-left:90%;" class="dropdown-menu">
+                                <a style="font-size:16px; opacity:0.6;" class="dropdown-item" href="{{ path("logout")}}"><i class="fas fa-sign-out-alt"></i>Cerrar sesión</a>
+                            </div>
+                        </div>
+                    {% else %}
+                        <li style=" width:100%;" class="nav-item">
+                            <a style="font-size:18px; opacity:0.6; margin-left:40%; width:100%;"class="nav-link" href="{{ path("login")}}"><i class="fas fa-sign-in-alt"></i> INICIAR SESIÓN</a>
+                        </li>
+                    {% endif %}
+                </ul>  
+            </div>    
+        </div>
+    </nav>
+
+    <hr>
+    <br><br><br><br><br><br> 
+
+
+    <!--CUERPO-->
+
+    <main style="padding:2% 10% 0% 10%; text-align:justify;">
+
+        <h1>Historia del automóvil</h1>
+
+        <br>
+
+        <p style="width:60%; float:left;">
+            La historia del automóvil, en un sentido estricto, comienza en el siglo XIX. La palabra deriva del griego αὐτός autós, "a sí mismo", y del latín mobilis, "que se mueve", sobre todo para distinguir entre los vehículos a motor y los de tracción animal. De estos vehículos autopropulsados se conocieron muchos tipos diferentes a través de las épocas.
+
+            Una manera de clasificarlos sería el método empleado para la propulsión; desde este punto de vista, los más significativos fueron los impulsados por vapor del siglo XVIII. Aunque ya en el siglo XVII el jesuita Ferdinand Verbiest, residente en China, describió un vehículo impulsado a vapor, de pequeño tamaño. Posteriormente, se podrían clasificar en función de las tendencias en cuanto a forma exterior, tamaño, y aplicaciones.
+
+            En 1860 Etienne Lenoir patentó el primer vehículo por motor de combustión interna con gasolina. Se puede dividir la evolución en una serie de etapas marcadas por los principales hitos tecnológicos.
+
+            Uno de los inventos más característicos del siglo XX ha sido sin duda el automóvil. Los primeros prototipos se crearon a finales del siglo XIX pero no fue hasta la primera década del XX donde el público empezó a mirarlos como algo útil. El automóvil recorre las tres fases de los grandes medios de propulsión: vapor, electricidad y gasolina. 
+
+            Nicolas-Joseph Cugnot (1725-1804), escritor e inventor francés, dio el gran paso, al construir un vehículo de vapor con motor de dos cilindros verticales y 50 litros de desplazamiento. La rueda delantera resultaba tractora y directriz a la vez, trabajando los dos cilindros directamente sobre ella.1​ En 1770 construyó un segundo modelo, mayor que el primero, y que podía arrastrar 4,5 toneladas a una velocidad de 4 km/h. Con esta versión se produjo el que podría considerarse como el primer accidente automovilístico de la historia, al resultar imposible el correcto manejo del monumental vehículo, que acabó chocando contra una pared que se derrumbó fruto del percance. Cugnot todavía tuvo tiempo de construir una tercera versión en 1771, que se conserva expuesta en la actualidad en el Museo Nacional de la Técnica de París. 
+        </p>
+        <img style="width:35%; margin-left:5%;" src="{{asset('informacion1.jpg')}}"/>
+
+        <br><br><br><br><br>
+        <h2>Combustibles del petróleo</h2>
+        <br>
+        <p style="width:60%; float:right;">
+            En 1815 Josef Božek, construyó un auto con motor propulsado a aceite.3​
+
+            El belga Etienne Lenoir hizo funcionar un coche con motor de combustión interna alrededor de 1860, propulsado por gas de carbón. En su patente se mencionaba el encendido eléctrico de la mezcla de aire y combustible, una novedad con respecto a los tubos incandescentes que se conocían hasta ese momento.
+
+            A partir del sistema Lenoir de motor de dos tiempos, Nikolaus Otto en Alemania en 1876 construyó y patentó el primer motor práctico de motor de cuatro tiempos, cuyo principio había sido enunciado en 1886 por el francés Beau de Rochas.
+
+            Alrededor de 1870, en Viena, el inventor Siegfried Marcus hizo funcionar el motor de combustión interna a base de gasolina, conocido como el “Primer coche de Marcus”. En 1883, Marcus patentó un sistema de ignición de bajo voltaje que se implantó en modelos subsiguientes.
+
+            En 1879 Georg Baldwin Selden presenta en Estados Unidos la patente Nº 549.160, que describe en todos sus detalles la construcción de los automóviles de gasolina, con un motor de dos tiempos. Aunque no se le concedió hasta 1895, y no se realizó un vehículo con arreglo a lo planos de la misma hasta 1899, tuvo como consecuencias que la mayor parte de emprendedores que deseaban fabricar sus vehículos se uniesen en una asociación autorizada para hacer uso de la patente.
+
+            Es comúnmente aceptado que los primeros automóviles con gasolina fueron casi simultáneamente desarrollados por ingenieros alemanes trabajando independientemente: Karl Benz construyó su primer modelo (el Benz Patent-Motorwagen) en 1885.
+
+           
+        </p>
+        <img style="width:35%; margin-right:5%;" src="{{asset('informacion2.jpeg')}}"/>
+        
+        <br><br><br>
+        <h2>La electricidad</h2>
+        <br>
+        <p style="width:60%; float:left;">
+             En 1888, Bertha Benz viajó 80 km desde Mannheim hasta Pforzheim (Alemania) para demostrar el potencial del invento de su marido.
+
+            Benz lo patentó el 29 de enero de 1886 y empezó a producirlo en 1888. Este vehículo es reconocido por la mayor parte de los especialistas como el punto de inicio del automóvil. Poco después, Gottlieb Daimler y Wilhelm Maybach, de Stuttgart, diseñaron su propio automóvil en 1889.
+
+            En 1892 obtuvo Rudolf Diesel una patente relativa a una "nueva máquina térmica racional" con un rendimiento térmico mayor que el del motor de gasolina. 
+           
+            Robert Anderson inventó el que sería el primer y rudimentario vehículo eléctrico entre 1832 y 1839, propulsado por celdas eléctricas no recargables. Desde 1881 existían varios vehículos impulsados por energía eléctrica, entre los que cabe mencionar los de William Morrison en Estados Unidos (1892), y los de la Coburger Maschinenfabrik: A. Flocken y de Gustave Trouvé, este último presentado en la Exposición Internacional de la Electricidad en París. La máquina eléctrica presentaba la ventaja de ser menos pesada que la de vapor, muy silenciosa; el problema que presentaba era la corta autonomía que tenía a irse descargando las baterías que propulsaban el motor eléctrico. Camille Jenatzy presentó su "bolido" La Jamais Contente en 1889, la velocidad que alcanzó era extraordinaria para la época: 105 km/h. 
+        </p>
+        <img style="width:35%; margin-left:5%;" src="{{asset('informacionled.jpg')}}"/>
+
+    </main>
+
+
+{% endblock %}    

@@ -4,7 +4,7 @@ AppBundle\Entity\Recambios:
     uniqueConstraints:
         fecha_venta:
             columns:
-                - fecha_venta
+                - fecha_creacion
     id:
         id:
             type: integer
@@ -33,14 +33,19 @@ AppBundle\Entity\Recambios:
             length: 50
             options:
                 fixed: false
-        fechaVenta:
+        fechaCreacion:
             type: datetime
             nullable: false
-            column: fecha_venta
+            column: fecha_creacion
         img:
             type: string
             nullable: false
-            length: 10
+            length: 20
             options:
                 fixed: false
+        precio:
+            type: decimal
+            nullable: false
+            precision: 11
+            scale: 2
     lifecycleCallbacks: {  }

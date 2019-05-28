@@ -36,6 +36,16 @@ class Inventario
     private $estado = 'activo';
 
     /**
+     * @var \AppBundle\Entity\Recambios
+     *
+     * @ORM\ManyToOne(targetEntity="AppBundle\Entity\Recambios")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="fecha_venta", referencedColumnName="fecha_creacion")
+     * })
+     */
+    private $fechaVenta;
+
+    /**
      * @var \AppBundle\Entity\User
      *
      * @ORM\ManyToOne(targetEntity="AppBundle\Entity\User")
@@ -45,15 +55,6 @@ class Inventario
      */
     private $idUsuario;
 
-    /**
-     * @var \AppBundle\Entity\Recambios
-     *
-     * @ORM\ManyToOne(targetEntity="AppBundle\Entity\Recambios")
-     * @ORM\JoinColumns({
-     *   @ORM\JoinColumn(name="fecha_venta", referencedColumnName="fecha_venta")
-     * })
-     */
-    private $fechaVenta;
     function getId() {
         return $this->id;
     }
@@ -66,12 +67,12 @@ class Inventario
         return $this->estado;
     }
 
-    function getIdUsuario(): \AppBundle\Entity\User {
-        return $this->idUsuario;
-    }
-
     function getFechaVenta(): \AppBundle\Entity\Recambios {
         return $this->fechaVenta;
+    }
+
+    function getIdUsuario(): \AppBundle\Entity\User {
+        return $this->idUsuario;
     }
 
     function setId($id) {
@@ -86,14 +87,13 @@ class Inventario
         $this->estado = $estado;
     }
 
-    function setIdUsuario(\AppBundle\Entity\User $idUsuario) {
-        $this->idUsuario = $idUsuario;
-    }
-
     function setFechaVenta(\AppBundle\Entity\Recambios $fechaVenta) {
         $this->fechaVenta = $fechaVenta;
     }
 
+    function setIdUsuario(\AppBundle\Entity\User $idUsuario) {
+        $this->idUsuario = $idUsuario;
+    }
 
 
 }

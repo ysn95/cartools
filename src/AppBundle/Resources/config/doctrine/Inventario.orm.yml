@@ -35,6 +35,16 @@ AppBundle\Entity\Inventario:
                 fixed: false
                 default: activo
     manyToOne:
+        fechaVenta:
+            targetEntity: Recambios
+            cascade: {  }
+            fetch: LAZY
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                fecha_venta:
+                    referencedColumnName: fecha_creacion
+            orphanRemoval: false
         idUsuario:
             targetEntity: User
             cascade: {  }
@@ -44,15 +54,5 @@ AppBundle\Entity\Inventario:
             joinColumns:
                 id_usuario:
                     referencedColumnName: id
-            orphanRemoval: false
-        fechaVenta:
-            targetEntity: Recambios
-            cascade: {  }
-            fetch: LAZY
-            mappedBy: null
-            inversedBy: null
-            joinColumns:
-                fecha_venta:
-                    referencedColumnName: fecha_venta
             orphanRemoval: false
     lifecycleCallbacks: {  }

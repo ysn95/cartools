@@ -13,7 +13,7 @@ class RecambiosType extends AbstractType
      */
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
-        $builder->add('nombre')->add('contenido')->add('marca')->add('fechaVenta')->add('img');
+        $builder->add('nombre')->add('contenido')->add('marca')->add('fechaCreacion')->add('img')->add('precio');
     }/**
      * {@inheritdoc}
      */

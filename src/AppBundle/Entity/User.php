@@ -2,7 +2,6 @@
 
 namespace AppBundle\Entity;
 
-
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Validator\Constraints as Assert;
 use Symfony\Component\Security\Core\User\UserInterface;
@@ -15,8 +14,8 @@ use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
  * @ORM\Table(name="user")
  * @ORM\Entity
  */
-class User implements UserInterface, \Serializable
-{
+class User implements UserInterface, \Serializable {
+
     /**
      * @var integer
      *
@@ -93,51 +92,44 @@ class User implements UserInterface, \Serializable
     function setRol($rol) {
         $this->rol = $rol;
     }
-    
+
     function getUsername() {
         return $this->nombre;
     }
-    
 
-    public function getRoles(){
-        
+    public function getRoles() {
+
         return array($this->getRol());
     }
 
+    public function getSalt() {
 
-    public function getSalt(){
-        
-            return null;
+        return null;
     }
-    
-    public function eraseCredentials(){
+
+    public function eraseCredentials() {
         
     }
-    
+
     public function __toString() {
         return $this->nombre;
     }
-    
+
     public function serialize() {
         return serialize([
             $this->id,
             $this->nombre,
             $this->password,
-            
         ]);
     }
-    
-    
+
     public function unserialize($serialized) {
-        
+
         list(
                 $this->id,
-                $this->nombre,
+                $this->username,
                 $this->password,
                 ) = unserialize($serialized, ['allowed_classes => false']);
-       
     }
-    
 
 }
-

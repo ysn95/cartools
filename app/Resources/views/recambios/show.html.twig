@@ -23,7 +23,7 @@
             </tr>
             <tr>
                 <th>Fechaventa</th>
-                <td>{% if recambio.fechaVenta %}{{ recambio.fechaVenta|date('Y-m-d H:i:s') }}{% endif %}</td>
+                <td>{% if recambio.fechaCreacion %}{{ recambio.fechaCreacion|date('Y-m-d H:i:s') }}{% endif %}</td>
             </tr>
             <tr>
                 <th>Img</th>
@@ -51,15 +51,7 @@
         
         
         
-        
-        
-        
-        
-        
-        
-        
-        
-        
+      
             
 <link href="//netdna.bootstrapcdn.com/bootstrap/3.0.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
 <script src="//netdna.bootstrapcdn.com/bootstrap/3.0.1/js/bootstrap.min.js"></script>
@@ -94,11 +86,11 @@
 				</div>
 					
 				<div class="col-md-7">
-					<div class="product-title">Corsair GS600 600 Watt PSU</div>
-					<div class="product-desc">The Corsair Gaming Series GS600 is the ideal price/performance choice for mid-spec gaming PC</div>
+					<div class="product-title">{{ recambio.nombre }}</div>
+					<div class="product-desc">{{recambio.contenido}}</div>
 					<div class="product-rating"><i class="fa fa-star gold"></i> <i class="fa fa-star gold"></i> <i class="fa fa-star gold"></i> <i class="fa fa-star gold"></i> <i class="fa fa-star-o"></i> </div>
 					<hr>
-					<div class="product-price">$ 1234.00</div>
+					<div class="product-price">{{recambio.precio}}</div>
 					<div class="product-stock">In Stock</div>
 					<hr>
 					<div class="btn-group cart">

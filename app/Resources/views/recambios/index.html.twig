@@ -10,8 +10,9 @@
                 <th>Nombre</th>
                 <th>Contenido</th>
                 <th>Marca</th>
-                <th>Fechaventa</th>
+                <th>Fechacreacion</th>
                 <th>Img</th>
+                <th>Precio</th>
                 <th>Actions</th>
             </tr>
         </thead>
@@ -22,8 +23,9 @@
                 <td>{{ recambio.nombre }}</td>
                 <td>{{ recambio.contenido }}</td>
                 <td>{{ recambio.marca }}</td>
-                <td>{% if recambio.fechaVenta %}{{ recambio.fechaVenta|date('Y-m-d H:i:s') }}{% endif %}</td>
+                <td>{% if recambio.fechaCreacion %}{{ recambio.fechaCreacion|date('Y-m-d H:i:s') }}{% endif %}</td>
                 <td>{{ recambio.img }}</td>
+                <td>{{ recambio.precio }}</td>
                 <td>
                     <ul>
                         <li>

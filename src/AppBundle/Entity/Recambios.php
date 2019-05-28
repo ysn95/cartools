@@ -7,7 +7,7 @@ use Doctrine\ORM\Mapping as ORM;
 /**
  * Recambios
  *
- * @ORM\Table(name="recambios", uniqueConstraints={@ORM\UniqueConstraint(name="fecha_venta", columns={"fecha_venta"})})
+ * @ORM\Table(name="recambios", uniqueConstraints={@ORM\UniqueConstraint(name="fecha_venta", columns={"fecha_creacion"})})
  * @ORM\Entity
  */
 class Recambios
@@ -45,16 +45,23 @@ class Recambios
     /**
      * @var \DateTime
      *
-     * @ORM\Column(name="fecha_venta", type="datetime", nullable=false)
+     * @ORM\Column(name="fecha_creacion", type="datetime", nullable=false)
      */
-    private $fechaVenta;
+    private $fechaCreacion;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="img", type="string", length=10, nullable=false)
+     * @ORM\Column(name="img", type="string", length=20, nullable=false)
      */
     private $img;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="precio", type="decimal", precision=11, scale=2, nullable=false)
+     */
+    private $precio;
     function getId() {
         return $this->id;
     }
@@ -71,12 +78,16 @@ class Recambios
         return $this->marca;
     }
 
-    function getFechaVenta(): \DateTime {
-        return $this->fechaVenta;
+    function getFechaCreacion(): \DateTime {
+        return $this->fechaCreacion;
     }
 
     function getImg() {
         return $this->img;
+    }
+
+    function getPrecio() {
+        return $this->precio;
     }
 
     function setId($id) {
@@ -95,12 +106,16 @@ class Recambios
         $this->marca = $marca;
     }
 
-    function setFechaVenta(\DateTime $fechaVenta) {
-        $this->fechaVenta = $fechaVenta;
+    function setFechaCreacion(\DateTime $fechaCreacion) {
+        $this->fechaCreacion = $fechaCreacion;
     }
 
     function setImg($img) {
         $this->img = $img;
+    }
+
+    function setPrecio($precio) {
+        $this->precio = $precio;
     }
 
 

@@ -9,6 +9,11 @@ recambios:
 recambios_productos:
     path:     /recambios-productos
     defaults: { _controller: "AppBundle:Default:recambios" }
+
+informacion_recambios:
+    path: /informacion
+    defaults: { _controller: "AppBundle:Default:informacionrecambios" }
+    
     
 registro_usuario:
     path:    /registro

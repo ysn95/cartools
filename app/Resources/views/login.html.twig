@@ -2,31 +2,31 @@
 
 
 {% block body %}
-    
-{% if error %}
-    <div>{{ error.messageKey|trans(error.messageData, 'security') }}</div>
-{% endif %}
+
+    {% if error %}
+        <div>{{ error.messageKey|trans(error.messageData, 'security') }}</div>
+    {% endif %}
 
 
-<form action="{{ path('login') }}" method="post">
-    <label for="username">Username:</label>
-    <input type="text" id="username" name="_username" value= "{{ last_username }}"/>
+    <form action="{{ path('login') }}" method="post">
+        <label for="username">Username:</label>
+        <input type="text" id="username" name="_username" value= "{{ last_username }}"/>
 
-    <label for="password">Password:</label>
-    <input type="password" id="password" name="_password"/>
-    
- {% if app.user != null and app.user.rol == 'ROLE_ADMIN' %}
-        <input type="hidden" name="_target_path" value= '/admin' />      
- {% elseif app.user != null and app.user.rol == 'ROLE_USER' %}
-        <input type="hidden" name="_target_path" value="/cartools/web/app_dev.php" />     
- {% endif %}
+        <label for="password">Password:</label>
+        <input type="password" id="password" name="_password"/>
 
-    <button type="submit">login</button>
-    <a  href="/cartools/web/app_dev.php/registro"><button style="margin-left:50px; font-size:20px;" type="button" class="btn btn-dark">Registro</button></a>
-    
-    
-</form>
+        {% if app.user != null and app.user.rol == 'ROLE_ADMIN' %}
+            <input type="hidden" name="_target_path" value= '/admin' />      
+        {% elseif app.user != null and app.user.rol == 'ROLE_USER' %}
+            <input type="hidden" name="_target_path" value="/cartools/web/app_dev.php" />     
+        {% endif %}
+
+        <button type="submit">login</button>
+        <a  href="/cartools/web/app_dev.php/registro"><button style="margin-left:50px; font-size:20px;" type="button" class="btn btn-dark">Registro</button></a>
 
 
-    
+    </form>
+
+
+
 {% endblock %}

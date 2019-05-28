@@ -37,6 +37,7 @@ class Comprar
      * })
      */
     private $idRecambios;
+
     function getId() {
         return $this->id;
     }
@@ -60,7 +61,6 @@ class Comprar
     function setIdRecambios(\AppBundle\Entity\Recambios $idRecambios) {
         $this->idRecambios = $idRecambios;
     }
-
 
 
 }
