@@ -6,7 +6,7 @@
     <!--BARRA NAVEGACIÓN-->          
 
     <nav id="ali_nav" class="navbar fixed-top navbar-expand-lg navbar-light">
-        <a class="navbar-brand" href="/cartools/web/app_dev.php"><img id="logo" src="{{asset('logo.png')}}"/></a>
+        <a class="navbar-brand" href="/cartools/web/app_dev.php"><img class="animated fadeIn" id="logo" src="{{asset('logo.png')}}"/></a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
@@ -61,9 +61,13 @@
 
     <!--CUERPO-->
 
-    <main style="padding:2% 10% 0% 10%; text-align:justify;">
 
-        <h1>Historia del automóvil</h1>
+    <h2 style="margin-left:10%; margin-top:2%;">INFORMACIÓN</h2>
+    <hr style="width:80%;">
+
+    <main style="padding:2% 10% 0% 10%; margin-top:2%; text-align:justify;">
+
+        <h2>Historia del automóvil</h2>
 
         <br>
 
@@ -78,7 +82,7 @@
 
             Nicolas-Joseph Cugnot (1725-1804), escritor e inventor francés, dio el gran paso, al construir un vehículo de vapor con motor de dos cilindros verticales y 50 litros de desplazamiento. La rueda delantera resultaba tractora y directriz a la vez, trabajando los dos cilindros directamente sobre ella.1​ En 1770 construyó un segundo modelo, mayor que el primero, y que podía arrastrar 4,5 toneladas a una velocidad de 4 km/h. Con esta versión se produjo el que podría considerarse como el primer accidente automovilístico de la historia, al resultar imposible el correcto manejo del monumental vehículo, que acabó chocando contra una pared que se derrumbó fruto del percance. Cugnot todavía tuvo tiempo de construir una tercera versión en 1771, que se conserva expuesta en la actualidad en el Museo Nacional de la Técnica de París. 
         </p>
-        <img style="width:35%; margin-left:5%;" src="{{asset('informacion1.jpg')}}"/>
+        <img class="animated fadeInRight" style="width:35%; margin-left:5%;" src="{{asset('informacion1.jpg')}}"/>
 
         <br><br><br><br><br>
         <h2>Combustibles del petróleo</h2>
@@ -96,25 +100,100 @@
 
             Es comúnmente aceptado que los primeros automóviles con gasolina fueron casi simultáneamente desarrollados por ingenieros alemanes trabajando independientemente: Karl Benz construyó su primer modelo (el Benz Patent-Motorwagen) en 1885.
 
-           
+
         </p>
-        <img style="width:35%; margin-right:5%;" src="{{asset('informacion2.jpeg')}}"/>
-        
+        <img class="animated fadeInLeft" style="width:35%; margin-right:5%;" src="{{asset('informacion2.jpeg')}}"/>
+
         <br><br><br>
         <h2>La electricidad</h2>
         <br>
         <p style="width:60%; float:left;">
-             En 1888, Bertha Benz viajó 80 km desde Mannheim hasta Pforzheim (Alemania) para demostrar el potencial del invento de su marido.
+            En 1888, Bertha Benz viajó 80 km desde Mannheim hasta Pforzheim (Alemania) para demostrar el potencial del invento de su marido.
 
             Benz lo patentó el 29 de enero de 1886 y empezó a producirlo en 1888. Este vehículo es reconocido por la mayor parte de los especialistas como el punto de inicio del automóvil. Poco después, Gottlieb Daimler y Wilhelm Maybach, de Stuttgart, diseñaron su propio automóvil en 1889.
 
             En 1892 obtuvo Rudolf Diesel una patente relativa a una "nueva máquina térmica racional" con un rendimiento térmico mayor que el del motor de gasolina. 
-           
+
             Robert Anderson inventó el que sería el primer y rudimentario vehículo eléctrico entre 1832 y 1839, propulsado por celdas eléctricas no recargables. Desde 1881 existían varios vehículos impulsados por energía eléctrica, entre los que cabe mencionar los de William Morrison en Estados Unidos (1892), y los de la Coburger Maschinenfabrik: A. Flocken y de Gustave Trouvé, este último presentado en la Exposición Internacional de la Electricidad en París. La máquina eléctrica presentaba la ventaja de ser menos pesada que la de vapor, muy silenciosa; el problema que presentaba era la corta autonomía que tenía a irse descargando las baterías que propulsaban el motor eléctrico. Camille Jenatzy presentó su "bolido" La Jamais Contente en 1889, la velocidad que alcanzó era extraordinaria para la época: 105 km/h. 
         </p>
-        <img style="width:35%; margin-left:5%;" src="{{asset('informacionled.jpg')}}"/>
+        <img class="animated fadeInRight" style="width:35%; margin-left:5%;" src="{{asset('informacionled.jpg')}}"/>
 
     </main>
+
+
+
+    <br><br><br><br><br><br>
+
+    <!--FOOTER-->
+
+
+    <hr>
+
+    <footer class="page-footer font-small blue pt-4">
+
+        <!-- Footer Links -->
+        <div class="container-fluid text-center text-md-left">
+
+            <!-- Grid row -->
+            <div  style="margin-left:3%;" class="row">
+
+                <!-- Grid column -->
+                <div class="col-md-5 mt-md-0 mt-3">
+
+                    <!-- Content -->
+                    <img style="width:35%;" src="{{asset('logo.png')}}"/>
+
+                </div>
+                <!-- Grid column -->
+
+                <hr class="clearfix w-100 d-md-none pb-3">
+
+                <!-- Grid column -->
+                <div class="col-md-4 mb-md-0 mb-3">
+
+                    <div style="margin-top:5%;">
+
+                        <a href="https://www.facebook.com/"><i style="font-size:25px; color:#3b5998;" class="fab fa-facebook-f"></i></a>
+
+                        <a href="https://twitter.com/"><i style="font-size:25px; margin-left:5%; color:#00acee; " class="fab fa-twitter"></i></a>
+
+                        <a href="https://www.instagram.com/"><i style="font-size:25px; margin-left:5%; color:#e1306c;" class="fab fa-instagram"></i></a>
+
+                    </div>
+
+
+                </div>
+                <!-- Grid column -->
+
+                <!-- Grid column -->
+                <div class="col-md-3 mb-md-0 mb-3">
+
+                    <ul class="list-unstyled">
+
+                        <li style="width:80%;">
+                            Recambios de coches baratos: repuestos de coches y recambios de automóvil descuento online.
+                            <br>
+                            © 2019 Copyright:<a href="/cartools/web/app_dev.php"> Cartools.com</a>
+
+                        </li>
+                    </ul>
+
+                </div>
+                <!-- Grid column -->
+
+            </div>
+            <!-- Grid row -->
+
+        </div>
+        <!-- Footer Links -->
+
+        <!-- Copyright -->
+
+        <!-- Copyright -->
+
+    </footer>
+    <!-- Footer -->
+
 
 
 {% endblock %}    

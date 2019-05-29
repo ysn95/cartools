@@ -4,6 +4,7 @@
 
 
 
+
     <!--BARRA NAVEGACIÓN-->          
 
     <nav id="ali_nav" class="navbar fixed-top navbar-expand-lg navbar-light">
@@ -19,7 +20,7 @@
                         <a class="nav-link" href="/cartools/web/app_dev.php"><i id="iconos" class="fas fa-home"></i>INICIO</a>
                     </li>
 
-                    <li id="b_navbar" class="nav-item dropdown active">
+                    <li id="b_navbar" class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             <i id="iconos" class="fas fa-tools"></i>PRODUCTOS
                         </a>
@@ -28,7 +29,7 @@
                             <a class="dropdown-item" href="/cartools/web/app_dev.php/alquiler/">Alquiler</a>
                         </div>
                     </li>
-                    <li id="b_navbar" class="nav-item">
+                    <li id="b_navbar" class="nav-item active">
                         <a class="nav-link" href="/cartools/web/app_dev.php/contacto"><i id="iconos" class="fas fa-info-circle"></i>CONTACTO</a>
                     </li>
                     <li id="b_navbar" class="nav-item">
@@ -48,7 +49,7 @@
                         </div>
                     {% else %}
                         <li style=" width:100%;" class="nav-item">
-                            <a style="font-size:18px; opacity:0.6; margin-left:40%; width:100%;"class="nav-link" href="{{ path("login")}}"><i class="fas fa-sign-in-alt"></i> INICIAR SESIÓN</a>
+                            <a style="font-size:18px; opacity:0.6; margin-left:30%; width:100%;"class="nav-link" href="{{ path("login")}}"><i class="fas fa-sign-in-alt"></i> INICIAR SESIÓN</a>
                         </li>
                     {% endif %}
                 </ul>  
@@ -57,85 +58,74 @@
     </nav>
 
     <hr>
-    <br><br><br><br><br>
+    <br><br><br><br><br><br><br> 
+
 
 
 
 
     <!--CUERPO-->
 
-    <main style="padding:1%;">
+    <h2 style="margin-left:17%;">CONTACTO</h2>
+    <hr style="width:68%;">
 
-        <h1 style="margin-left:13%; float:left;">Recambios</h1>
+    <main style="margin-top:4%;">
 
-        <br><br>
-        <hr style="width:75%;">
-        <br>
+        <div style="float:left; margin-left:16%; margin-right:5%; width:30%;">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="well well-sm">
+                        <form class="form-horizontal" method="post">
+                            <fieldset>
+                                <legend style="margin-left:3%;" class="text-left header">Formulario de contacto</legend>
 
-        <form style="margin-left:40%; margin-top:0.1%;" action="{{path("recambios_productos")}}">
-            <input type="text" id="nombre" name="nombre" placeholder="Introduzca el nombre..">
-            <button type="submit" class="btn btn-success">Buscar</button>
-        </form>
+                                <div class="form-group">
+                                    <span class="col-md-1 col-md-offset-2"><i class="fa fa-user bigicon"></i></span>
+                                    <div class="col-md-12">
+                                        <input id="fname" name="name" type="text" placeholder="Nombre.." class="form-control">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <span class="col-md-1 col-md-offset-2"><i class="far fa-envelope bigicon"></i></span>
+                                    <div class="col-md-12">
+                                        <input id="email" name="email" type="text" placeholder="Correo electrónico.." class="form-control">
+                                    </div>
+                                </div>
 
+                                <div class="form-group">
+                                    <span class="col-md-1 col-md-offset-2"><i class="fa fa-phone-square bigicon"></i></span>
+                                    <div class="col-md-12">
+                                        <input id="phone" name="phone" type="text" placeholder="Telefono.." class="form-control">
+                                    </div>
+                                </div>
 
+                                <div class="form-group">
+                                    <span class="col-md-1 col-md-offset-2 text-center"><i class="fas fa-pencil-alt bigicon"></i></span>
+                                    <div class="col-md-12">
+                                        <textarea class="form-control" id="message" name="message" placeholder="Introduzca su mensaje en este apartado, le contestaremos en un máximo de 2 días." rows="7"></textarea>
+                                    </div>
+                                </div>
 
-<!--AJAX-->
-        <script>
-            $(document).ready(function () {
-                $('#nombre').focus()
-
-                $('#nombre').on('keyup', function () {
-                    var search = $('#nombre').val()
-                    $.ajax({
-                        type: 'POST',
-                        url: '{{path('recambios_productos')}}',
-                        data: {'nombre': nombre},
-                    })
-                            .done(function (resultado) {
-                                $('#result').html(resultado)
-                                $('#result').css({"float": "left", "border-right": "1px solid black", "border-top": "1px solid black", "box-shadow": "3px 3px 3px", "opacity": "0.8", "padding-left": "5%"})
-                            })
-                            .fail(function () {
-                                alert('Hubo un error :(')
-                            })
-                })
-            })
-
-        </script>       
-        
-        
-        <div class="col-md-3 col-md-offset-3" id="result"></div>
-        
-        
-<!---->
-
-
-
-        {% for recambio in datos %}
-
-            <div class="animated fadeInUp" style="width:50%;margin:4%; margin-left:25%; padding:1%;">
-                <p><a style="text-decoration:underline; color:black;" href="{{ path('recambios_show', { 'id': recambio.id }) }}"><h2 style="text-transform: uppercase;">{{ recambio.nombre }}</h2><img style="width:15%;" src="{{asset("imagen/" ~ recambio.marca)}}"</a></p>
-                <a href="{{ path('recambios_show', { 'id': recambio.id }) }}"><img style="width:35%; border:1px solid black; padding:2%; float:right;" src="{{asset("imagen/" ~ recambio.img)}}"/></a>
-
-                <p style="width:20%; margin-top:5%; font-size:20px;width:50%; text-align:left;">{{recambio.contenido}}
-                    <br><br>{% if recambio.fechaCreacion %}{{ recambio.fechaCreacion|date('Y-m-d H:i:s') }}{% endif %}
-                    <br><br><br>
-                    <a href="{{ path('recambios_show', { 'id': recambio.id }) }}"><button type="submit" class="btn btn-success">Comprar</button></a>
-                    <button type="button" class="btn btn-danger">Añadir al carrito</button>
-                    <br>
-                <h1 style="color:red;">{{recambio.precio}}€</h1>
-
-
-                </p>
-
+                                <div class="form-group">
+                                    <div class="col-md-1 text-center">
+                                        <button type="submit" class="btn btn-primary btn-lg">Enviar</button>
+                                    </div>
+                                </div>
+                            </fieldset>
+                        </form>
+                    </div>
+                </div>
             </div>
-
-            <hr style="width:50%;">
-
-        {% endfor %}
+        </div>
 
 
-        <br><br><br><br>
+        <!--GOOGLE MAPS-->
+
+
+        <iframe style="margin-top:3%;" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3256.6490319606087!2d-2.9481130486982754!3d35.28985138019065!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd77058d3fb51753%3A0x3655270d62269458!2sInstituto+de+Educaci%C3%B3n+Secundaria+Ies+Leopoldo+Queipo!5e0!3m2!1ses!2ses!4v1559122303046!5m2!1ses!2ses" width="600" height="450" frameborder="0" style="border:0" allowfullscreen></iframe>
+
+
+        <br><br><br><br><br><br><br><br>
 
         <!--FOOTER-->
 
@@ -207,8 +197,4 @@
         </footer>
         <!-- Footer -->
 
-
-
     {% endblock %}
-    {# empty Twig template #}
-
