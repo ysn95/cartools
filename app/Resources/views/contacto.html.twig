@@ -15,27 +15,27 @@
 
         <div id="ali_pesta">    
             <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
-                <ul class="navbar-nav mr-auto">
-                    <li id="b_navbar"  class="nav-item">
-                        <a class="nav-link" href="/cartools/web/app_dev.php"><i id="iconos" class="fas fa-home"></i>INICIO</a>
-                    </li>
+                        <ul class="navbar-nav mr-auto">
+                            <li id="b_navbar"  class="nav-item">
+                                <a class="nav-link" href="{{path('recambios')}}"><i id="iconos" class="fas fa-home"></i>INICIO</a>
+                            </li>
 
-                    <li id="b_navbar" class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            <i id="iconos" class="fas fa-tools"></i>PRODUCTOS
-                        </a>
-                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <a class="dropdown-item" href="/cartools/web/app_dev.php/recambios-productos">Recambios</a>
-                            <a class="dropdown-item" href="/cartools/web/app_dev.php/alquiler/">Alquiler</a>
-                        </div>
-                    </li>
-                    <li id="b_navbar" class="nav-item active">
-                        <a class="nav-link" href="/cartools/web/app_dev.php/contacto"><i id="iconos" class="fas fa-info-circle"></i>CONTACTO</a>
-                    </li>
-                    <li id="b_navbar" class="nav-item">
-                        <a class="nav-link" href="/cartools/web/app_dev.php/informacion"><i id="iconos" class="fas fa-info-circle"></i>INFORMACIÓN</a>
-                    </li>
-                </ul>
+                            <li id="b_navbar" class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    <i id="iconos" class="fas fa-tools"></i>PRODUCTOS
+                                </a>
+                                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                    <a class="dropdown-item" href="{{path('recambios_productos')}}">Recambios</a>
+                                    <a class="dropdown-item" href="{{path('recambios')}}">Alquiler</a>
+                                </div>
+                            </li>
+                            <li id="b_navbar" class="nav-item active">
+                                <a class="nav-link" href="{{path('contacto_recambios')}}"><i id="iconos" class="fas fa-info-circle"></i>CONTACTO</a>
+                            </li>
+                            <li id="b_navbar" class="nav-item">
+                                <a class="nav-link" href="{{path('informacion_recambios')}}"><i id="iconos" class="fas fa-info-circle"></i>INFORMACIÓN</a>
+                            </li>
+                        </ul>
 
                 <ul class="nav navbar-nav ml-auto mr-5">
                     {% if app.user != null %}
