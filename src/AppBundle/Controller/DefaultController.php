@@ -33,6 +33,25 @@ class DefaultController extends Controller {
                     'datos' => $datos,
         ));
     }
+    
+        public function alquilerAction(Request $request) {
+
+        $em = $this->getDoctrine()->getManager();
+
+        $nombre = $request->get('nombre');
+
+        if ($nombre == null) {
+            $datos = $em->getRepository('AppBundle:Recambios')->findAll();
+        } else {
+            $query = $em->createQuery('SELECT r FROM AppBundle:Recambios r WHERE r.nombre LIKE :nombre')
+                    ->setParameter('nombre', '%'.$nombre .'%');
+            $datos = $query->getResult();
+        }
+
+        return $this->render('recambios/recambios.html.twig', array(
+                    'datos' => $datos,
+        ));
+    }
 
     public function informacionrecambiosAction() {
         $em = $this->getDoctrine()->getManager();

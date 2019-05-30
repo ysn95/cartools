@@ -109,7 +109,7 @@
                             {% if app.user != null %}
                                 <div class="dropdown">
                                     <button style="font-size:16px; margin-left:100%; " type="button" class="btn btn-danger dropdown-toggle" data-toggle="dropdown">
-                                        {{ app.user.username }}
+                                        {{ app.user.nombre }}
                                     </button>
                                     <div style="margin-left:90%;" class="dropdown-menu">
                                         <a style="font-size:16px; opacity:0.6;" class="dropdown-item" href="{{ path("logout")}}"><i class="fas fa-sign-out-alt"></i>Cerrar sesión</a>

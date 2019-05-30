@@ -39,7 +39,7 @@
                     {% if app.user != null %}
                         <div class="dropdown">
                             <button style="font-size:16px; margin-left:100%; " type="button" class="btn btn-danger dropdown-toggle" data-toggle="dropdown">
-                                {{ app.user.username }}
+                                {{ app.user.nombre }}
                             </button>
                             <div style="margin-left:90%;" class="dropdown-menu">
                                 <a style="font-size:16px; opacity:0.6;" class="dropdown-item" href="{{ path("logout")}}"><i class="fas fa-sign-out-alt"></i>Cerrar sesión</a>
@@ -65,10 +65,11 @@
     <h2 style="margin-left:10%; margin-top:2%;">INFORMACIÓN</h2>
     <hr style="width:80%;">
 
-    <main style="padding:2% 10% 0% 10%; margin-top:2%; text-align:justify;">
-
+    <main style="padding:2% 10% 0% 10%; margin-top:5%; text-align:justify;">
+        
+        
+        <div>
         <h2>Historia del automóvil</h2>
-
         <br>
 
         <p style="width:60%; float:left;">
@@ -83,8 +84,15 @@
             Nicolas-Joseph Cugnot (1725-1804), escritor e inventor francés, dio el gran paso, al construir un vehículo de vapor con motor de dos cilindros verticales y 50 litros de desplazamiento. La rueda delantera resultaba tractora y directriz a la vez, trabajando los dos cilindros directamente sobre ella.1​ En 1770 construyó un segundo modelo, mayor que el primero, y que podía arrastrar 4,5 toneladas a una velocidad de 4 km/h. Con esta versión se produjo el que podría considerarse como el primer accidente automovilístico de la historia, al resultar imposible el correcto manejo del monumental vehículo, que acabó chocando contra una pared que se derrumbó fruto del percance. Cugnot todavía tuvo tiempo de construir una tercera versión en 1771, que se conserva expuesta en la actualidad en el Museo Nacional de la Técnica de París. 
         </p>
         <img class="animated fadeInRight" style="width:35%; margin-left:5%;" src="{{asset('informacion1.jpg')}}"/>
-
-        <br><br><br><br><br>
+        </div>
+        
+        
+        <br><br><br><br><br><br><br><br><br>
+        
+        
+        
+        
+        <div>
         <h2>Combustibles del petróleo</h2>
         <br>
         <p style="width:60%; float:right;">
@@ -103,8 +111,14 @@
 
         </p>
         <img class="animated fadeInLeft" style="width:35%; margin-right:5%;" src="{{asset('informacion2.jpeg')}}"/>
-
-        <br><br><br>
+        </div>
+        
+        <br><br><br><br><br><br><br>
+        
+        
+        
+        
+        <div>
         <h2>La electricidad</h2>
         <br>
         <p style="width:60%; float:left;">
@@ -117,7 +131,8 @@
             Robert Anderson inventó el que sería el primer y rudimentario vehículo eléctrico entre 1832 y 1839, propulsado por celdas eléctricas no recargables. Desde 1881 existían varios vehículos impulsados por energía eléctrica, entre los que cabe mencionar los de William Morrison en Estados Unidos (1892), y los de la Coburger Maschinenfabrik: A. Flocken y de Gustave Trouvé, este último presentado en la Exposición Internacional de la Electricidad en París. La máquina eléctrica presentaba la ventaja de ser menos pesada que la de vapor, muy silenciosa; el problema que presentaba era la corta autonomía que tenía a irse descargando las baterías que propulsaban el motor eléctrico. Camille Jenatzy presentó su "bolido" La Jamais Contente en 1889, la velocidad que alcanzó era extraordinaria para la época: 105 km/h. 
         </p>
         <img class="animated fadeInRight" style="width:35%; margin-left:5%;" src="{{asset('informacionled.jpg')}}"/>
-
+        </div>
+        
     </main>
 
 

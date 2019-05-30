@@ -41,7 +41,7 @@
                     {% if app.user != null %}
                         <div class="dropdown">
                             <button style="font-size:16px; margin-left:100%; " type="button" class="btn btn-danger dropdown-toggle" data-toggle="dropdown">
-                                {{ app.user.username }}
+                                {{ app.user.nombre }}
                             </button>
                             <div style="margin-left:90%;" class="dropdown-menu">
                                 <a style="font-size:16px; opacity:0.6;" class="dropdown-item" href="{{ path("logout")}}"><i class="fas fa-sign-out-alt"></i>Cerrar sesión</a>
@@ -69,46 +69,46 @@
     <h2 style="margin-left:17%;">CONTACTO</h2>
     <hr style="width:68%;">
 
-    <main style="margin-top:4%;">
+    <main style="margin-top:3%;">
 
         <div style="float:left; margin-left:16%; margin-right:5%; width:30%;">
             <div class="row">
                 <div class="col-md-12">
                     <div class="well well-sm">
-                        <form class="form-horizontal" method="post">
+                        <form action="mailto:yasinmohand4d@gmail.com" method="post" enctype="text/plain" class="form-horizontal" method="post">
                             <fieldset>
-                                <legend style="margin-left:3%;" class="text-left header">Formulario de contacto</legend>
+                                <legend style="margin-bottom:5%;" class="text-left header">Formulario de contacto</legend>
 
                                 <div class="form-group">
                                     <span class="col-md-1 col-md-offset-2"><i class="fa fa-user bigicon"></i></span>
-                                    <div class="col-md-12">
-                                        <input id="fname" name="name" type="text" placeholder="Nombre.." class="form-control">
-                                    </div>
+                                    <select id="fname" name="Nombre" class="col-md-12">
+                                            <option>{{ app.user.nombre }}</option>
+                                    </select>
                                 </div>
                                 <div class="form-group">
                                     <span class="col-md-1 col-md-offset-2"><i class="far fa-envelope bigicon"></i></span>
-                                    <div class="col-md-12">
-                                        <input id="email" name="email" type="text" placeholder="Correo electrónico.." class="form-control">
-                                    </div>
+                                    <select id="fname" name="Correo" class="col-md-12">
+                                            <option>{{app.user.email}}</option>
+                                    </select>
                                 </div>
 
                                 <div class="form-group">
                                     <span class="col-md-1 col-md-offset-2"><i class="fa fa-phone-square bigicon"></i></span>
-                                    <div class="col-md-12">
-                                        <input id="phone" name="phone" type="text" placeholder="Telefono.." class="form-control">
+                                    <div class="col-md-14">
+                                        <input id="phone" name="Teléfono" type="number" placeholder="Telefono.." max=999999999 min=600000000 class="form-control" required>
                                     </div>
                                 </div>
 
                                 <div class="form-group">
                                     <span class="col-md-1 col-md-offset-2 text-center"><i class="fas fa-pencil-alt bigicon"></i></span>
-                                    <div class="col-md-12">
-                                        <textarea class="form-control" id="message" name="message" placeholder="Introduzca su mensaje en este apartado, le contestaremos en un máximo de 2 días." rows="7"></textarea>
+                                    <div class="col-md-14">
+                                        <textarea class="form-control" id="message" name="Mensaje" placeholder="Introduzca su mensaje en este apartado, le contestaremos en un plazo máximo de 2 días." rows="7" required></textarea>
                                     </div>
                                 </div>
 
                                 <div class="form-group">
                                     <div class="col-md-1 text-center">
-                                        <button type="submit" class="btn btn-primary btn-lg">Enviar</button>
+                                        <button type="submit" Value="Send" class="btn btn-primary btn-lg">Enviar</button>
                                     </div>
                                 </div>
                             </fieldset>
@@ -122,7 +122,7 @@
         <!--GOOGLE MAPS-->
 
 
-        <iframe style="margin-top:3%;" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3256.6490319606087!2d-2.9481130486982754!3d35.28985138019065!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd77058d3fb51753%3A0x3655270d62269458!2sInstituto+de+Educaci%C3%B3n+Secundaria+Ies+Leopoldo+Queipo!5e0!3m2!1ses!2ses!4v1559122303046!5m2!1ses!2ses" width="600" height="450" frameborder="0" style="border:0" allowfullscreen></iframe>
+        <iframe style="margin-top:4%;" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3256.6490319606087!2d-2.9481130486982754!3d35.28985138019065!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd77058d3fb51753%3A0x3655270d62269458!2sInstituto+de+Educaci%C3%B3n+Secundaria+Ies+Leopoldo+Queipo!5e0!3m2!1ses!2ses!4v1559122303046!5m2!1ses!2ses" width="600" height="450" frameborder="0" style="border:0" allowfullscreen></iframe>
 
 
         <br><br><br><br><br><br><br><br>
