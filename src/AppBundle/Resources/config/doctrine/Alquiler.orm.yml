@@ -4,7 +4,7 @@ AppBundle\Entity\Alquiler:
     indexes:
         fk_id_recambios:
             columns:
-                - id_recambios
+                - id_herramientas
     id:
         id:
             type: integer
@@ -22,14 +22,14 @@ AppBundle\Entity\Alquiler:
             options:
                 fixed: false
     manyToOne:
-        idRecambios:
-            targetEntity: Recambios
+        idHerramientas:
+            targetEntity: Herramientas
             cascade: {  }
             fetch: LAZY
             mappedBy: null
             inversedBy: null
             joinColumns:
-                id_recambios:
+                id_herramientas:
                     referencedColumnName: id
             orphanRemoval: false
     lifecycleCallbacks: {  }

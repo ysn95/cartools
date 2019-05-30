@@ -6,7 +6,7 @@
     <!--BARRA NAVEGACIÓN-->          
 
     <nav id="ali_nav" class="navbar fixed-top navbar-expand-lg navbar-light">
-        <a class="navbar-brand" href="/cartools/web/app_dev.php"><img class="animated fadeIn" id="logo" src="{{asset('logo.png')}}"/></a>
+        <a class="navbar-brand" href="{{path('recambios')}}"><img class="animated fadeIn" id="logo" src="{{asset('logo.png')}}"/></a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
@@ -24,7 +24,7 @@
                         </a>
                         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                             <a class="dropdown-item" href="{{path('recambios_productos')}}">Recambios</a>
-                            <a class="dropdown-item" href="{{path('recambios')}}">Alquiler</a>
+                            <a class="dropdown-item" href="{{path('recambios_alquiler')}}">Alquiler</a>
                         </div>
                     </li>
                     <li id="b_navbar" class="nav-item">
@@ -188,7 +188,7 @@
                         <li style="width:80%;">
                             Recambios de coches baratos: repuestos de coches y recambios de automóvil descuento online.
                             <br>
-                            © 2019 Copyright:<a href="/cartools/web/app_dev.php"> Cartools.com</a>
+                            © 2019 Copyright:<a href="{{path('recambios')}}"> Cartools.com</a>
 
                         </li>
                     </ul>

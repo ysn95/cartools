@@ -6,21 +6,21 @@ use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
-class AlquilerType extends AbstractType
+class HerramientasType extends AbstractType
 {
     /**
      * {@inheritdoc}
      */
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
-        $builder->add('estado')->add('idHerramientas');
+        $builder->add('nombre')->add('contenido')->add('marca')->add('fechaCreacion')->add('img')->add('precio');
     }/**
      * {@inheritdoc}
      */
     public function configureOptions(OptionsResolver $resolver)
     {
         $resolver->setDefaults(array(
-            'data_class' => 'AppBundle\Entity\Alquiler'
+            'data_class' => 'AppBundle\Entity\Herramientas'
         ));
     }
 
@@ -29,7 +29,7 @@ class AlquilerType extends AbstractType
      */
     public function getBlockPrefix()
     {
-        return 'appbundle_alquiler';
+        return 'appbundle_herramientas';
     }
 
 

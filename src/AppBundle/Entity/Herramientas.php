@@ -5,12 +5,12 @@ namespace AppBundle\Entity;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * Recambios
+ * Herramientas
  *
- * @ORM\Table(name="recambios", uniqueConstraints={@ORM\UniqueConstraint(name="fecha_venta", columns={"fecha_creacion"})})
+ * @ORM\Table(name="herramientas")
  * @ORM\Entity
  */
-class Recambios
+class Herramientas
 {
     /**
      * @var integer
@@ -24,7 +24,7 @@ class Recambios
     /**
      * @var string
      *
-     * @ORM\Column(name="nombre", type="string", length=50, nullable=false)
+     * @ORM\Column(name="nombre", type="string", length=20, nullable=false)
      */
     private $nombre;
 
@@ -38,7 +38,7 @@ class Recambios
     /**
      * @var string
      *
-     * @ORM\Column(name="marca", type="string", length=50, nullable=false)
+     * @ORM\Column(name="marca", type="string", length=20, nullable=false)
      */
     private $marca;
 
@@ -59,7 +59,7 @@ class Recambios
     /**
      * @var string
      *
-     * @ORM\Column(name="precio", type="decimal", precision=11, scale=2, nullable=false)
+     * @ORM\Column(name="precio", type="decimal", precision=10, scale=2, nullable=false)
      */
     private $precio;
 

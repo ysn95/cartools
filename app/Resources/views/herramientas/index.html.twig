@@ -1,0 +1,49 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Herramientas list</h1>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Nombre</th>
+                <th>Contenido</th>
+                <th>Marca</th>
+                <th>Fechacreacion</th>
+                <th>Img</th>
+                <th>Precio</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for herramienta in herramientas %}
+            <tr>
+                <td><a href="{{ path('herramientas_show', { 'id': herramienta.id }) }}">{{ herramienta.id }}</a></td>
+                <td>{{ herramienta.nombre }}</td>
+                <td>{{ herramienta.contenido }}</td>
+                <td>{{ herramienta.marca }}</td>
+                <td>{% if herramienta.fechaCreacion %}{{ herramienta.fechaCreacion|date('Y-m-d H:i:s') }}{% endif %}</td>
+                <td>{{ herramienta.img }}</td>
+                <td>{{ herramienta.precio }}</td>
+                <td>
+                    <ul>
+                        <li>
+                            <a href="{{ path('herramientas_show', { 'id': herramienta.id }) }}">show</a>
+                        </li>
+                        <li>
+                            <a href="{{ path('herramientas_edit', { 'id': herramienta.id }) }}">edit</a>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('herramientas_new') }}">Create a new herramienta</a>
+        </li>
+    </ul>
+{% endblock %}

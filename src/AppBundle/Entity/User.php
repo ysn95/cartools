@@ -14,7 +14,8 @@ use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
  * @ORM\Table(name="user")
  * @ORM\Entity
  */
-class User implements UserInterface, \Serializable {
+class User implements UserInterface, \Serializable
+{
 
     /**
      * @var integer
@@ -127,7 +128,7 @@ class User implements UserInterface, \Serializable {
 
         list(
                 $this->id,
-                $this->username,
+                $this->nombre,
                 $this->password,
                 ) = unserialize($serialized, ['allowed_classes => false']);
     }

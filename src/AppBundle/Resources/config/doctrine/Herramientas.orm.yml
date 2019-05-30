@@ -1,0 +1,47 @@
+AppBundle\Entity\Herramientas:
+    type: entity
+    table: herramientas
+    id:
+        id:
+            type: integer
+            nullable: false
+            options:
+                unsigned: true
+            id: true
+            generator:
+                strategy: IDENTITY
+    fields:
+        nombre:
+            type: string
+            nullable: false
+            length: 20
+            options:
+                fixed: false
+        contenido:
+            type: text
+            nullable: false
+            length: 65535
+            options:
+                fixed: false
+        marca:
+            type: string
+            nullable: false
+            length: 20
+            options:
+                fixed: false
+        fechaCreacion:
+            type: datetime
+            nullable: false
+            column: fecha_creacion
+        img:
+            type: string
+            nullable: false
+            length: 20
+            options:
+                fixed: false
+        precio:
+            type: decimal
+            nullable: false
+            precision: 10
+            scale: 2
+    lifecycleCallbacks: {  }

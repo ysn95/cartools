@@ -41,14 +41,14 @@ class DefaultController extends Controller {
         $nombre = $request->get('nombre');
 
         if ($nombre == null) {
-            $datos = $em->getRepository('AppBundle:Recambios')->findAll();
+            $datos = $em->getRepository('AppBundle:Herramientas')->findAll();
         } else {
-            $query = $em->createQuery('SELECT r FROM AppBundle:Recambios r WHERE r.nombre LIKE :nombre')
+            $query = $em->createQuery('SELECT h FROM AppBundle:Herramientas h WHERE h.nombre LIKE :nombre')
                     ->setParameter('nombre', '%'.$nombre .'%');
             $datos = $query->getResult();
         }
 
-        return $this->render('recambios/recambios.html.twig', array(
+        return $this->render('alquiler/alquiler.html.twig', array(
                     'datos' => $datos,
         ));
     }

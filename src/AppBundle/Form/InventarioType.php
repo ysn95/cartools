@@ -13,7 +13,7 @@ class InventarioType extends AbstractType
      */
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
-        $builder->add('idRecambios')->add('estado')->add('idUsuario')->add('fechaVenta');
+        $builder->add('idRecambios')->add('estado')->add('fechaVenta')->add('idUsuario');
     }/**
      * {@inheritdoc}
      */

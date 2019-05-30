@@ -7,7 +7,7 @@ use Doctrine\ORM\Mapping as ORM;
 /**
  * Alquiler
  *
- * @ORM\Table(name="alquiler", indexes={@ORM\Index(name="fk_id_recambios", columns={"id_recambios"})})
+ * @ORM\Table(name="alquiler", indexes={@ORM\Index(name="fk_id_recambios", columns={"id_herramientas"})})
  * @ORM\Entity
  */
 class Alquiler
@@ -29,14 +29,14 @@ class Alquiler
     private $estado;
 
     /**
-     * @var \AppBundle\Entity\Recambios
+     * @var \AppBundle\Entity\Herramientas
      *
-     * @ORM\ManyToOne(targetEntity="AppBundle\Entity\Recambios")
+     * @ORM\ManyToOne(targetEntity="AppBundle\Entity\Herramientas")
      * @ORM\JoinColumns({
-     *   @ORM\JoinColumn(name="id_recambios", referencedColumnName="id")
+     *   @ORM\JoinColumn(name="id_herramientas", referencedColumnName="id")
      * })
      */
-    private $idRecambios;
+    private $idHerramientas;
 
     function getId() {
         return $this->id;
@@ -46,8 +46,8 @@ class Alquiler
         return $this->estado;
     }
 
-    function getIdRecambios(): \AppBundle\Entity\Recambios {
-        return $this->idRecambios;
+    function getIdHerramientas(): \AppBundle\Entity\Herramientas {
+        return $this->idHerramientas;
     }
 
     function setId($id) {
@@ -58,8 +58,8 @@ class Alquiler
         $this->estado = $estado;
     }
 
-    function setIdRecambios(\AppBundle\Entity\Recambios $idRecambios) {
-        $this->idRecambios = $idRecambios;
+    function setIdHerramientas(\AppBundle\Entity\Herramientas $idHerramientas) {
+        $this->idHerramientas = $idHerramientas;
     }
 
 

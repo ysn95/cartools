@@ -1,47 +1,47 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-    <h1>Recambio</h1>
+    <h1>Herramienta</h1>
 
     <table>
         <tbody>
             <tr>
                 <th>Id</th>
-                <td>{{ recambio.id }}</td>
+                <td>{{ herramienta.id }}</td>
             </tr>
             <tr>
                 <th>Nombre</th>
-                <td>{{ recambio.nombre }}</td>
+                <td>{{ herramienta.nombre }}</td>
             </tr>
             <tr>
                 <th>Contenido</th>
-                <td>{{ recambio.contenido }}</td>
+                <td>{{ herramienta.contenido }}</td>
             </tr>
             <tr>
                 <th>Marca</th>
-                <td>{{ recambio.marca }}</td>
+                <td>{{ herramienta.marca }}</td>
             </tr>
             <tr>
                 <th>Fechacreacion</th>
-                <td>{% if recambio.fechaCreacion %}{{ recambio.fechaCreacion|date('Y-m-d H:i:s') }}{% endif %}</td>
+                <td>{% if herramienta.fechaCreacion %}{{ herramienta.fechaCreacion|date('Y-m-d H:i:s') }}{% endif %}</td>
             </tr>
             <tr>
                 <th>Img</th>
-                <td>{{ recambio.img }}</td>
+                <td>{{ herramienta.img }}</td>
             </tr>
             <tr>
                 <th>Precio</th>
-                <td>{{ recambio.precio }}</td>
+                <td>{{ herramienta.precio }}</td>
             </tr>
         </tbody>
     </table>
 
     <ul>
         <li>
-            <a href="{{ path('recambios_index') }}">Back to the list</a>
+            <a href="{{ path('herramientas_index') }}">Back to the list</a>
         </li>
         <li>
-            <a href="{{ path('recambios_edit', { 'id': recambio.id }) }}">Edit</a>
+            <a href="{{ path('herramientas_edit', { 'id': herramienta.id }) }}">Edit</a>
         </li>
         <li>
             {{ form_start(delete_form) }}

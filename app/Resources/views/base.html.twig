@@ -76,7 +76,7 @@
             <!--BARRA NAVEGACIÓN-->          
 
             <nav id="ali_nav" class="navbar fixed-top navbar-expand-lg navbar-light">
-                <a class="navbar-brand" href="/cartools/web/app_dev.php"><img class="animated fadeIn" id="logo" src="{{asset('logo.png')}}"/></a>
+                <a class="navbar-brand" href="{{path('recambios')}}"><img class="animated fadeIn" id="logo" src="{{asset('logo.png')}}"/></a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
@@ -94,7 +94,7 @@
                                 </a>
                                 <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                                     <a class="dropdown-item" href="{{path('recambios_productos')}}">Recambios</a>
-                                    <a class="dropdown-item" href="{{path('recambios')}}">Alquiler</a>
+                                    <a class="dropdown-item" href="{{path('recambios_alquiler')}}">Alquiler</a>
                                 </div>
                             </li>
                             <li id="b_navbar" class="nav-item">
@@ -161,21 +161,21 @@
             <div style="margin-left:8%; margin-top:2%;">
                 
                 <div id="bloques" class="animated bounceInLeft" style="float:left; width:25%; margin-right:7%;">
-                    <a style="text-decoration:none;" href="/cartools/web/app_dev.php/recambios-productos">
+                    <a style="text-decoration:none;" href="{{path('recambios_productos')}}">
                         <img style=" width:110%;" src="{{asset('recambios.jpg')}}"/>
                         <h4 style="text-align:center; color:white; width:110%; background-color:#7e7e7e;">RECAMBIOS</h4>
                     </a>
                 </div>
                 <div id="bloques" class="animated bounceInUp" style="float:left; width:25%; margin-right:7%;">
 
-                    <a style="text-decoration:none;" href="/cartools/web/app_dev.php/alquiler/">  
+                    <a style="text-decoration:none;" href="{{path('recambios_alquiler')}}">  
                         <img style=" width:110%;" src="{{asset('herramientas.jpg')}}"/>
                         <h4 style="text-align:center; color:white; width:110%; background-color:#7e7e7e;">ALQUILER</h4>
                     </a>
                 </div>
                 <div id="bloques" class="animated bounceInRight" style="float:left; width:25%;">
 
-                    <a style="text-decoration:none;" href="/cartools/web/app_dev.php/informacion">  
+                    <a style="text-decoration:none;" href="{{path('informacion_recambios')}}">  
                         <img style=" width:110%;" src="{{asset('informacion.png')}}"/>
                         <h4 style="text-align:center; color:white; width:110%; background-color:#7e7e7e;">INFORMACIÓN</h4>
                     </a>
@@ -188,7 +188,7 @@
 
             <h3 style="width:84.3%; color:white; background-color:#7e7e7e; margin:auto; padding-left:1%;">MARCAS</h3>
 
-            <a href="/cartools/web/app_dev.php/recambios-productos"><img class="bounceIn" style="margin-left:11%; width:82%;" src="{{asset('marcas.png')}}"/></a>
+            <a href="{{path('recambios_productos')}}"><img class="bounceIn" style="margin-left:11%; width:82%;" src="{{asset('marcas.png')}}"/></a>
 
             <br><br><br><br><br><br>
 
@@ -241,7 +241,7 @@
                                 <li style="width:80%;">
                                     Recambios de coches baratos: repuestos de coches y recambios de automóvil descuento online.
                                     <br>
-                                    © 2019 Copyright:<a href="/cartools/web/app_dev.php"> Cartools.com</a>
+                                    © 2019 Copyright:<a href="{{path('recambios')}}"> Cartools.com</a>
 
                                 </li>
                             </ul>

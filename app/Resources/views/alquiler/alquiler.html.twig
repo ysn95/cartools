@@ -1,3 +1,4 @@
+{# empty Twig template #}
 {% extends 'base.html.twig' %}
 
 {% block body %}
@@ -66,13 +67,13 @@
 
     <main style="padding:1%;">
 
-        <h1 style="margin-left:13%; float:left;">Recambios</h1>
+        <h1 style="margin-left:13%; float:left;">Herramientas</h1>
 
         <br><br>
         <hr style="width:75%;">
         <br>
 
-        <form style="margin-left:40%; margin-top:0.1%;" action="{{path("recambios_productos")}}">
+        <form style="margin-left:40%; margin-top:0.1%;" action="{{path("recambios_alquiler")}}">
             <input type="text" id="nombre" name="nombre" placeholder="Introduzca el nombre..">
             <button type="submit" class="btn btn-success">Buscar</button>
         </form>
@@ -88,7 +89,7 @@
                     var search = $('#nombre').val()
                     $.ajax({
                         type: 'POST',
-                        url: '{{path('recambios_productos')}}',
+                        url: '{{path('recambios_alquiler')}}',
                         data: {'nombre': nombre},
                     })
                             .done(function (resultado) {
@@ -111,19 +112,19 @@
 
 
 
-        {% for recambio in datos %}
+        {% for herramienta in datos %}
 
             <div class="animated fadeInUp" style="width:50%;margin:4%; margin-left:25%; padding:1%;">
-                <p><a style="text-decoration:underline; color:black;" href="{{ path('recambios_show', { 'id': recambio.id }) }}"><h2 style="text-transform: uppercase;">{{ recambio.nombre }}</h2><img style="width:15%;" src="{{asset("imagen/" ~ recambio.marca)}}"</a></p>
-                <a href="{{ path('recambios_show', { 'id': recambio.id }) }}"><img style="width:35%; border:1px solid black; padding:2%; float:right;" src="{{asset("imagen/" ~ recambio.img)}}"/></a>
+                <p><a style="text-decoration:underline; color:black;" href="{{ path('herramientas_show', { 'id': herramienta.id }) }}"><h2 style="text-transform: uppercase;">{{ herramienta.nombre }}</h2><img style="width:15%;" src="{{asset("imagen/" ~ herramienta.marca)}}"</a></p>
+                <a href="{{ path('herramientas_show', { 'id': herramienta.id }) }}"><img style="width:35%; border:1px solid black; padding:2%; float:right;" src="{{asset("imagen/" ~ herramienta.img)}}"/></a>
 
-                <p style="width:20%; margin-top:5%; font-size:20px;width:50%; text-align:left;">{{recambio.contenido}}
-                    <br><br>{% if recambio.fechaCreacion %}{{ recambio.fechaCreacion|date('Y-m-d H:i:s') }}{% endif %}
+                <p style="width:20%; margin-top:5%; font-size:20px;width:50%; text-align:left;">{{herramienta.contenido}}
+                    <br><br>{% if herramienta.fechaCreacion %}{{ herramienta.fechaCreacion|date('Y-m-d H:i:s') }}{% endif %}
                     <br><br><br>
-                    <a href="{{ path('recambios_show', { 'id': recambio.id }) }}"><button type="submit" class="btn btn-success">Comprar</button></a>
+                    <a href="{{ path('herramientas_show', { 'id': herramienta.id }) }}"><button type="submit" class="btn btn-success">Comprar</button></a>
                     <button type="button" class="btn btn-danger">Añadir al carrito</button>
                     <br>
-                <h1 style="color:red;">{{recambio.precio}}€</h1>
+                <h1 style="color:red;">{{herramienta.precio}}€</h1>
 
 
                 </p>
