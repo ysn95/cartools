@@ -2,6 +2,7 @@
 
 {% block body %}
 
+
     <!--BARRA NAVEGACIÓN-->          
 
     <nav id="ali_nav" class="navbar fixed-top navbar-expand-lg navbar-light">
@@ -13,7 +14,7 @@
         <div id="ali_pesta">    
             <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
                 <ul class="navbar-nav mr-auto">
-                    <li id="b_navbar"  class="nav-item">
+                    <li id="b_navbar"  class="nav-item active">
                         <a class="nav-link" href="{{path('administracion')}}"><i id="iconos" class="fas fa-home"></i>ADMIN USER</a>
                     </li>
 
@@ -26,7 +27,7 @@
                             <a class="dropdown-item" href="/cartools/web/app_dev.php/alquiler/">ADMIN ALQUILER</a>
                         </div>
                     </li>
-                    <li id="b_navbar" class="nav-item active">
+                    <li id="b_navbar" class="nav-item">
                         <a class="nav-link" href="/cartools/web/app_dev.php/recambios/"><i id="iconos" class="fas fa-info-circle"></i>ADMIN RECAMBIOS</a>
                     </li>
                     <li id="b_navbar" class="nav-item">
@@ -58,55 +59,54 @@
     <br><br><br>     
 
 
+
     <!--CUERPO-->
-    
+
+
+
     <div style="margin-left:10%; margin-top:5%;">
 
-    <h1>Recambios list</h1>
+        <h1>Lista de Usuarios</h1>
 
-    <table style="margin-top:2%;">
-        <thead>
-            <tr>
-                <th style="width:1%;">Id</th>
-                <th style="width:1%;">Nombre</th>
-                <th style="width:1%;">Contenido</th>
-                <th style="width:1%;">Marca</th>
-                <th style="width:1%;">Fechacreacion</th>
-                <th style="width:1%;">Img</th>
-                <th style="width:1%;">Precio</th>
-                <th style="width:1%;">Actions</th>
-            </tr>
-        </thead>
-        <tbody>
-            {% for recambio in recambios %}
+        <table style="margin-top:2%;">
+            <thead>
                 <tr>
-                    <td><a href="{{ path('recambios_show', { 'id': recambio.id }) }}">{{ recambio.id }}</a></td>
-                    <td>{{ recambio.nombre }}</td>
-                    <td>{{ recambio.contenido }}</td>
-                    <td>{{ recambio.marca }}</td>
-                    <td>{% if recambio.fechaCreacion %}{{ recambio.fechaCreacion|date('Y-m-d H:i:s') }}{% endif %}</td>
-                    <td>{{ recambio.img }}</td>
-                    <td>{{ recambio.precio }}</td>
-                    <td>
-                        <ul>
-                            <li>
-                                <a href="{{ path('recambios_show', { 'id': recambio.id }) }}">show</a>
-                            </li>
-                            <li>
-                                <a href="{{ path('recambios_edit', { 'id': recambio.id }) }}">edit</a>
-                            </li>
-                        </ul>
-                    </td>
+                    <th style="width:1%;">Id</th>
+                    <th style="width:1%;">Nombre</th>
+                    <th style="width:1%;">Email</th>
+                    <th style="width:1%;">Password</th>
+                    <th style="width:1%;">Rol</th>
+                    <th style="width:1%;">Actions</th>
                 </tr>
-            {% endfor %}
-        </tbody>
-    </table>
+            </thead>
+            <tbody>
+                {% for user in users %}
+                    <tr>
+                        <td><a href="{{ path('user_show', { 'id': user.id }) }}">{{ user.id }}</a></td>
+                        <td>{{ user.nombre }}</td>
+                        <td>{{ user.email }}</td>
+                        <td>{{ user.password }}</td>
+                        <td>{{ user.rol }}</td>
+                        <td>
+                            <ul>
+                                <li>
+                                    <a href="{{ path('user_show', { 'id': user.id }) }}">ver</a>
+                                </li>
+                                <li>
+                                    <a href="{{ path('user_edit', { 'id': user.id }) }}">editar</a>
+                                </li>
+                            </ul>
+                        </td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
 
-    <ul>
-        <li>
-            <a href="{{ path('recambios_new') }}">Create a new recambio</a>
-        </li>
-    </ul>
-            
+        <ul>
+            <li>
+                <a href="{{ path('user_new') }}">Crear nuevo usuario</a>
+            </li>
+        </ul>
+
     </div>
 {% endblock %}

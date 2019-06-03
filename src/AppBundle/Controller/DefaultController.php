@@ -73,5 +73,16 @@ class DefaultController extends Controller {
         ));
     }
     
+    
+    
+    public function usuarioAction()
+    {
+        $em = $this->getDoctrine()->getManager();
 
+        $users = $em->getRepository('AppBundle:User')->findAll();
+
+        return $this->render('administracion.html.twig', array(
+            'users' => $users,
+        ));
+    }
 }

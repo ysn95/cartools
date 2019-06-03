@@ -15,27 +15,27 @@
 
         <div id="ali_pesta">    
             <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
-                        <ul class="navbar-nav mr-auto">
-                            <li id="b_navbar"  class="nav-item">
-                                <a class="nav-link" href="{{path('recambios')}}"><i id="iconos" class="fas fa-home"></i>INICIO</a>
-                            </li>
+                <ul class="navbar-nav mr-auto">
+                    <li id="b_navbar"  class="nav-item">
+                        <a class="nav-link" href="{{path('recambios')}}"><i id="iconos" class="fas fa-home"></i>INICIO</a>
+                    </li>
 
-                            <li id="b_navbar" class="nav-item dropdown">
-                                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                    <i id="iconos" class="fas fa-tools"></i>PRODUCTOS
-                                </a>
-                                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                    <a class="dropdown-item" href="{{path('recambios_productos')}}">Recambios</a>
-                                    <a class="dropdown-item" href="{{path('recambios_alquiler')}}">Alquiler</a>
-                                </div>
-                            </li>
-                            <li id="b_navbar" class="nav-item active">
-                                <a class="nav-link" href="{{path('contacto_recambios')}}"><i id="iconos" class="fas fa-info-circle"></i>CONTACTO</a>
-                            </li>
-                            <li id="b_navbar" class="nav-item">
-                                <a class="nav-link" href="{{path('informacion_recambios')}}"><i id="iconos" class="fas fa-info-circle"></i>INFORMACIÓN</a>
-                            </li>
-                        </ul>
+                    <li id="b_navbar" class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <i id="iconos" class="fas fa-tools"></i>PRODUCTOS
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <a class="dropdown-item" href="{{path('recambios_productos')}}">Recambios</a>
+                            <a class="dropdown-item" href="{{path('recambios_alquiler')}}">Alquiler</a>
+                        </div>
+                    </li>
+                    <li id="b_navbar" class="nav-item active">
+                        <a class="nav-link" href="{{path('contacto_recambios')}}"><i id="iconos" class="fas fa-info-circle"></i>CONTACTO</a>
+                    </li>
+                    <li id="b_navbar" class="nav-item">
+                        <a class="nav-link" href="{{path('informacion_recambios')}}"><i id="iconos" class="fas fa-info-circle"></i>INFORMACIÓN</a>
+                    </li>
+                </ul>
 
                 <ul class="nav navbar-nav ml-auto mr-5">
                     {% if app.user != null %}
@@ -79,18 +79,47 @@
                             <fieldset>
                                 <legend style="margin-bottom:5%;" class="text-left header">Formulario de contacto</legend>
 
-                                <div class="form-group">
-                                    <span class="col-md-1 col-md-offset-2"><i class="fa fa-user bigicon"></i></span>
-                                    <select id="fname" name="Nombre" class="col-md-12">
+
+
+                                {% if app.user != null %}
+
+                                    <div class="form-group">
+                                        <span class="col-md-1 col-md-offset-2"><i class="fa fa-user bigicon"></i></span>
+                                        <select id="fname" name="Nombre" class="col-md-12">
                                             <option>{{ app.user.nombre }}</option>
-                                    </select>
-                                </div>
-                                <div class="form-group">
-                                    <span class="col-md-1 col-md-offset-2"><i class="far fa-envelope bigicon"></i></span>
-                                    <select id="fname" name="Correo" class="col-md-12">
+                                        </select>
+                                    </div>
+                                    <div class="form-group">
+                                        <span class="col-md-1 col-md-offset-2"><i class="far fa-envelope bigicon"></i></span>
+                                        <select id="fname" name="Correo" class="col-md-12">
                                             <option>{{app.user.email}}</option>
-                                    </select>
-                                </div>
+                                        </select>
+                                    </div>
+
+
+                                {% else %}
+
+                                    <div class="form-group">
+                                        <span class="col-md-1 col-md-offset-2"><i class="fa fa-user bigicon"></i></span>
+                                        <select id="fname" name="Nombre" class="col-md-12">
+                                            {% for usuario in contacto %}
+                                                <option>{{ usuario.nombre }}</option>
+                                            {% endfor %}
+                                        </select>
+                                    </div>
+                                    <div class="form-group">
+                                        <span class="col-md-1 col-md-offset-2"><i class="far fa-envelope bigicon"></i></span>
+                                        <select id="fname" name="Correo" class="col-md-12">
+                                            {% for usuario in contacto %}
+                                                <option>{{usuario.email}}</option>
+                                            {% endfor %}
+                                        </select>
+                                    </div>
+
+                                {% endif %}    
+
+
+
 
                                 <div class="form-group">
                                     <span class="col-md-1 col-md-offset-2"><i class="fa fa-phone-square bigicon"></i></span>
