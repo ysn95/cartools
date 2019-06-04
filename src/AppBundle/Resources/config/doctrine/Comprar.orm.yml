@@ -21,6 +21,13 @@ AppBundle\Entity\Comprar:
             length: 50
             options:
                 fixed: false
+                default: COMPRADO
+        fechaVenta:
+            type: datetime
+            nullable: false
+            options:
+                default: CURRENT_TIMESTAMP
+            column: fecha_venta
     manyToOne:
         idRecambios:
             targetEntity: Recambios

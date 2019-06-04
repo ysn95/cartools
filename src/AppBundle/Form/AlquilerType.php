@@ -13,7 +13,7 @@ class AlquilerType extends AbstractType
      */
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
-        $builder->add('estado')->add('idHerramientas');
+        $builder->add('estado')->add('fechaAlquiler')->add('idHerramientas');
     }/**
      * {@inheritdoc}
      */

@@ -1,7 +1,6 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-
     <!--BARRA NAVEGACIÓN-->          
 
     <nav id="ali_nav" class="navbar fixed-top navbar-expand-lg navbar-light">
@@ -58,9 +57,14 @@
     <br><br><br>     
 
 
+
     <!--CUERPO-->
 
+
+
     <div style="margin-left:10%; margin-top:5%;">
+
+
         <h1>Herramientas list</h1>
 
         <table style="margin-top:2%;">
@@ -73,6 +77,7 @@
                     <th style="width:1%;">Fechacreacion</th>
                     <th style="width:1%;">Img</th>
                     <th style="width:1%;">Precio</th>
+                    <th style="width:1%;">Cantidad</th>
                     <th style="width:1%;">Actions</th>
                 </tr>
             </thead>
@@ -86,6 +91,7 @@
                         <td>{% if herramienta.fechaCreacion %}{{ herramienta.fechaCreacion|date('Y-m-d H:i:s') }}{% endif %}</td>
                         <td>{{ herramienta.img }}</td>
                         <td>{{ herramienta.precio }}</td>
+                        <td>{{ herramienta.cantidad }}</td>
                         <td>
                             <ul>
                                 <li>
@@ -107,4 +113,5 @@
             </li>
         </ul>
     </div>
+
 {% endblock %}

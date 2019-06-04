@@ -44,4 +44,10 @@ AppBundle\Entity\Herramientas:
             nullable: false
             precision: 10
             scale: 2
+        cantidad:
+            type: integer
+            nullable: false
+            options:
+                unsigned: true
+                default: '3'
     lifecycleCallbacks: {  }

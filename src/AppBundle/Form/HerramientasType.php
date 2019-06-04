@@ -13,7 +13,7 @@ class HerramientasType extends AbstractType
      */
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
-        $builder->add('nombre')->add('contenido')->add('marca')->add('fechaCreacion')->add('img')->add('precio');
+        $builder->add('nombre')->add('contenido')->add('marca')->add('fechaCreacion')->add('img')->add('precio')->add('cantidad');
     }/**
      * {@inheritdoc}
      */

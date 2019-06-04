@@ -14,8 +14,7 @@ use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
  * @ORM\Table(name="user")
  * @ORM\Entity
  */
-class User implements UserInterface, \Serializable
-{
+class User implements UserInterface, \Serializable {
 
     /**
      * @var integer
@@ -94,7 +93,13 @@ class User implements UserInterface, \Serializable
         $this->rol = $rol;
     }
 
-    function getUsername() {
+    
+    
+    
+    
+    
+    
+    public function getUsername() {
         return $this->nombre;
     }
 

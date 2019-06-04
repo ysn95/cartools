@@ -1,7 +1,6 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-
     <!--BARRA NAVEGACIÓN-->          
 
     <nav id="ali_nav" class="navbar fixed-top navbar-expand-lg navbar-light">
@@ -58,55 +57,61 @@
     <br><br><br>     
 
 
+
     <!--CUERPO-->
-    
+
+
+
     <div style="margin-left:10%; margin-top:5%;">
 
-    <h1>Recambios list</h1>
 
-    <table style="margin-top:2%;">
-        <thead>
-            <tr>
-                <th style="width:1%;">Id</th>
-                <th style="width:1%;">Nombre</th>
-                <th style="width:1%;">Contenido</th>
-                <th style="width:1%;">Marca</th>
-                <th style="width:1%;">Fechacreacion</th>
-                <th style="width:1%;">Img</th>
-                <th style="width:1%;">Precio</th>
-                <th style="width:1%;">Actions</th>
-            </tr>
-        </thead>
-        <tbody>
-            {% for recambio in recambios %}
+        <h1>Recambios list</h1>
+
+        <table style="margin-top:2%;">
+            <thead>
                 <tr>
-                    <td><a href="{{ path('recambios_show', { 'id': recambio.id }) }}">{{ recambio.id }}</a></td>
-                    <td>{{ recambio.nombre }}</td>
-                    <td>{{ recambio.contenido }}</td>
-                    <td>{{ recambio.marca }}</td>
-                    <td>{% if recambio.fechaCreacion %}{{ recambio.fechaCreacion|date('Y-m-d H:i:s') }}{% endif %}</td>
-                    <td>{{ recambio.img }}</td>
-                    <td>{{ recambio.precio }}</td>
-                    <td>
-                        <ul>
-                            <li>
-                                <a href="{{ path('recambios_show', { 'id': recambio.id }) }}">show</a>
-                            </li>
-                            <li>
-                                <a href="{{ path('recambios_edit', { 'id': recambio.id }) }}">edit</a>
-                            </li>
-                        </ul>
-                    </td>
+                    <th style="width:1%;">Id</th>
+                    <th style="width:1%;">Nombre</th>
+                    <th style="width:1%;">Contenido</th>
+                    <th style="width:1%;">Marca</th>
+                    <th style="width:1%;">Fechacreacion</th>
+                    <th style="width:1%;">Img</th>
+                    <th style="width:1%;">Precio</th>
+                    <th style="width:1%;">Cantidad</th>
+                    <th style="width:1%;">Actions</th>
                 </tr>
-            {% endfor %}
-        </tbody>
-    </table>
+            </thead>
+            <tbody>
+                {% for recambio in recambios %}
+                    <tr>
+                        <td><a href="{{ path('recambios_show', { 'id': recambio.id }) }}">{{ recambio.id }}</a></td>
+                        <td>{{ recambio.nombre }}</td>
+                        <td>{{ recambio.contenido }}</td>
+                        <td>{{ recambio.marca }}</td>
+                        <td>{% if recambio.fechaCreacion %}{{ recambio.fechaCreacion|date('Y-m-d H:i:s') }}{% endif %}</td>
+                        <td>{{ recambio.img }}</td>
+                        <td>{{ recambio.precio }}</td>
+                        <td>{{ recambio.cantidad }}</td>
+                        <td>
+                            <ul>
+                                <li>
+                                    <a href="{{ path('recambios_show', { 'id': recambio.id }) }}">show</a>
+                                </li>
+                                <li>
+                                    <a href="{{ path('recambios_edit', { 'id': recambio.id }) }}">edit</a>
+                                </li>
+                            </ul>
+                        </td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
 
-    <ul>
-        <li>
-            <a href="{{ path('recambios_new') }}">Create a new recambio</a>
-        </li>
-    </ul>
-            
+        <ul>
+            <li>
+                <a href="{{ path('recambios_new') }}">Create a new recambio</a>
+            </li>
+        </ul>
     </div>
+
 {% endblock %}

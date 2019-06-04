@@ -67,6 +67,13 @@ class Recambios {
      */
     private $precio;
 
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="cantidad", type="integer", nullable=false)
+     */
+    private $cantidad = '5';
+
     function getId() {
         return $this->id;
     }
@@ -95,6 +102,10 @@ class Recambios {
         return $this->precio;
     }
 
+    function getCantidad() {
+        return $this->cantidad;
+    }
+
     function setId($id) {
         $this->id = $id;
     }
@@ -121,6 +132,10 @@ class Recambios {
 
     function setPrecio($precio) {
         $this->precio = $precio;
+    }
+
+    function setCantidad($cantidad) {
+        $this->cantidad = $cantidad;
     }
 
 }

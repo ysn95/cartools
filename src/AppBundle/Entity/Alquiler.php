@@ -26,7 +26,14 @@ class Alquiler
      *
      * @ORM\Column(name="estado", type="string", length=50, nullable=false)
      */
-    private $estado;
+    private $estado = 'ALQUILADO';
+
+    /**
+     * @var \DateTime
+     *
+     * @ORM\Column(name="fecha_alquiler", type="datetime", nullable=false)
+     */
+    private $fechaAlquiler = 'CURRENT_TIMESTAMP';
 
     /**
      * @var \AppBundle\Entity\Herramientas
@@ -46,7 +53,11 @@ class Alquiler
         return $this->estado;
     }
 
-    function getIdHerramientas() {
+    function getFechaAlquiler(): \DateTime {
+        return $this->fechaAlquiler;
+    }
+
+    function getIdHerramientas(): \AppBundle\Entity\Herramientas {
         return $this->idHerramientas;
     }
 
@@ -56,6 +67,10 @@ class Alquiler
 
     function setEstado($estado) {
         $this->estado = $estado;
+    }
+
+    function setFechaAlquiler(\DateTime $fechaAlquiler) {
+        $this->fechaAlquiler = $fechaAlquiler;
     }
 
     function setIdHerramientas(\AppBundle\Entity\Herramientas $idHerramientas) {

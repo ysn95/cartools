@@ -13,6 +13,10 @@
                 <th>Estado</th>
                 <td>{{ alquiler.estado }}</td>
             </tr>
+            <tr>
+                <th>Fechaalquiler</th>
+                <td>{% if alquiler.fechaAlquiler %}{{ alquiler.fechaAlquiler|date('Y-m-d H:i:s') }}{% endif %}</td>
+            </tr>
         </tbody>
     </table>
 

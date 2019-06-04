@@ -48,4 +48,10 @@ AppBundle\Entity\Recambios:
             nullable: false
             precision: 11
             scale: 2
+        cantidad:
+            type: integer
+            nullable: false
+            options:
+                unsigned: true
+                default: '5'
     lifecycleCallbacks: {  }

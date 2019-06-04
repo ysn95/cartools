@@ -26,7 +26,14 @@ class Comprar
      *
      * @ORM\Column(name="estado", type="string", length=50, nullable=false)
      */
-    private $estado;
+    private $estado = 'COMPRADO';
+
+    /**
+     * @var \DateTime
+     *
+     * @ORM\Column(name="fecha_venta", type="datetime", nullable=false)
+     */
+    private $fechaVenta = 'CURRENT_TIMESTAMP';
 
     /**
      * @var \AppBundle\Entity\Recambios
@@ -46,7 +53,11 @@ class Comprar
         return $this->estado;
     }
 
-    function getIdRecambios() {
+    function getFechaVenta(): \DateTime {
+        return $this->fechaVenta;
+    }
+
+    function getIdRecambios(): \AppBundle\Entity\Recambios {
         return $this->idRecambios;
     }
 
@@ -56,6 +67,10 @@ class Comprar
 
     function setEstado($estado) {
         $this->estado = $estado;
+    }
+
+    function setFechaVenta(\DateTime $fechaVenta) {
+        $this->fechaVenta = $fechaVenta;
     }
 
     function setIdRecambios(\AppBundle\Entity\Recambios $idRecambios) {

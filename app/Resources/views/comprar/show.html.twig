@@ -13,6 +13,10 @@
                 <th>Estado</th>
                 <td>{{ comprar.estado }}</td>
             </tr>
+            <tr>
+                <th>Fechaventa</th>
+                <td>{% if comprar.fechaVenta %}{{ comprar.fechaVenta|date('Y-m-d H:i:s') }}{% endif %}</td>
+            </tr>
         </tbody>
     </table>
 

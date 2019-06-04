@@ -21,6 +21,13 @@ AppBundle\Entity\Alquiler:
             length: 50
             options:
                 fixed: false
+                default: ALQUILADO
+        fechaAlquiler:
+            type: datetime
+            nullable: false
+            options:
+                default: CURRENT_TIMESTAMP
+            column: fecha_alquiler
     manyToOne:
         idHerramientas:
             targetEntity: Herramientas
