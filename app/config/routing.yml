@@ -11,7 +11,7 @@ recambios_productos:
     defaults: { _controller: "AppBundle:Default:recambios" }
     
 recambios_alquiler:
-    path:     /productos-herramientas
+    path:     /herramientas
     defaults: { _controller: "AppBundle:Default:alquiler" }    
 
 informacion_recambios:
