@@ -10,8 +10,8 @@ use Doctrine\ORM\Mapping as ORM;
  * @ORM\Table(name="comprar", indexes={@ORM\Index(name="fkk_id_recambios", columns={"id_recambios"})})
  * @ORM\Entity
  */
-class Comprar
-{
+class Comprar {
+
     /**
      * @var integer
      *
@@ -35,6 +35,10 @@ class Comprar
      */
     private $fechaVenta = 'CURRENT_TIMESTAMP';
 
+    public function __construct() {
+        $this->fechaVenta = new \DateTime();
+    }
+
     /**
      * @var \AppBundle\Entity\Recambios
      *
@@ -57,7 +61,7 @@ class Comprar
         return $this->fechaVenta;
     }
 
-    function getIdRecambios(): \AppBundle\Entity\Recambios {
+    function getIdRecambios() {
         return $this->idRecambios;
     }
 
@@ -77,6 +81,4 @@ class Comprar
         $this->idRecambios = $idRecambios;
     }
 
-
 }
-
