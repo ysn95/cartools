@@ -46,7 +46,7 @@ class Alquiler
         return $this->estado;
     }
 
-    function getIdHerramientas(): \AppBundle\Entity\Herramientas {
+    function getIdHerramientas() {
         return $this->idHerramientas;
     }
 

@@ -46,7 +46,7 @@ class Comprar
         return $this->estado;
     }
 
-    function getIdRecambios(): \AppBundle\Entity\Recambios {
+    function getIdRecambios() {
         return $this->idRecambios;
     }
 

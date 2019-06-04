@@ -10,8 +10,8 @@ use Doctrine\ORM\Mapping as ORM;
  * @ORM\Table(name="recambios", uniqueConstraints={@ORM\UniqueConstraint(name="fecha_venta", columns={"fecha_creacion"})})
  * @ORM\Entity
  */
-class Recambios
-{
+class Recambios {
+
     /**
      * @var integer
      *
@@ -20,6 +20,10 @@ class Recambios
      * @ORM\GeneratedValue(strategy="IDENTITY")
      */
     private $id;
+
+    public function __toString() {
+        return (string) $this->id;
+    }
 
     /**
      * @var string
@@ -119,6 +123,4 @@ class Recambios
         $this->precio = $precio;
     }
 
-
 }
-
