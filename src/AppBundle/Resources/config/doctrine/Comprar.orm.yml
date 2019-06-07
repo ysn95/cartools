@@ -5,6 +5,9 @@ AppBundle\Entity\Comprar:
         fkk_id_recambios:
             columns:
                 - id_recambios
+        id_usuario:
+            columns:
+                - id_usuario
     id:
         id:
             type: integer
@@ -28,6 +31,18 @@ AppBundle\Entity\Comprar:
             options:
                 default: CURRENT_TIMESTAMP
             column: fecha_venta
+        megusta:
+            type: integer
+            nullable: false
+            options:
+                unsigned: true
+                default: '0'
+        comentarios:
+            type: string
+            nullable: false
+            length: 100
+            options:
+                fixed: false
     manyToOne:
         idRecambios:
             targetEntity: Recambios
@@ -37,6 +52,16 @@ AppBundle\Entity\Comprar:
             inversedBy: null
             joinColumns:
                 id_recambios:
+                    referencedColumnName: id
+            orphanRemoval: false
+        idUsuario:
+            targetEntity: User
+            cascade: {  }
+            fetch: LAZY
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                id_usuario:
                     referencedColumnName: id
             orphanRemoval: false
     lifecycleCallbacks: {  }

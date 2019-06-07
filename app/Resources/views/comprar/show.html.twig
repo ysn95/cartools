@@ -17,6 +17,14 @@
                 <th>Fechaventa</th>
                 <td>{% if comprar.fechaVenta %}{{ comprar.fechaVenta|date('Y-m-d H:i:s') }}{% endif %}</td>
             </tr>
+            <tr>
+                <th>Megusta</th>
+                <td>{{ comprar.megusta }}</td>
+            </tr>
+            <tr>
+                <th>Comentarios</th>
+                <td>{{ comprar.comentarios }}</td>
+            </tr>
         </tbody>
     </table>
 
@@ -29,8 +37,10 @@
         </li>
         <li>
             {{ form_start(delete_form) }}
-                <input type="submit" value="Delete">
+
             {{ form_end(delete_form) }}
         </li>
     </ul>
+
+
 {% endblock %}

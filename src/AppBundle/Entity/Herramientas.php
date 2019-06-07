@@ -10,8 +10,8 @@ use Doctrine\ORM\Mapping as ORM;
  * @ORM\Table(name="herramientas")
  * @ORM\Entity
  */
-class Herramientas {
-
+class Herramientas
+{
     /**
      * @var integer
      *
@@ -20,10 +20,6 @@ class Herramientas {
      * @ORM\GeneratedValue(strategy="IDENTITY")
      */
     private $id;
-
-    public function __toString() {
-        return (string) $this->id;
-    }
 
     /**
      * @var string
@@ -138,4 +134,6 @@ class Herramientas {
         $this->cantidad = $cantidad;
     }
 
+
 }
+

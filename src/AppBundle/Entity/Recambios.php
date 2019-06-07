@@ -53,6 +53,10 @@ class Recambios {
      */
     private $fechaCreacion;
 
+    public function __construct() {
+        $this->fechaCreacion = new \DateTime();
+    }
+
     /**
      * @var string
      *

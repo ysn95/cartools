@@ -1,107 +1,45 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-    <!--BARRA NAVEGACIÓN-->          
+    <h1>Comprars list</h1>
 
-    <nav id="ali_nav" class="navbar fixed-top navbar-expand-lg navbar-light">
-        <a class="navbar-brand" href="{{path('recambios')}}"><img class="animated fadeIn" id="logo" src="{{asset('logo.png')}}"/></a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-
-        <div id="ali_pesta">    
-            <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
-                <ul class="navbar-nav mr-auto">
-                    <li id="b_navbar"  class="nav-item">
-                        <a class="nav-link" href="{{path('administracion')}}"><i id="iconos" class="fas fa-home"></i>ADMIN USER</a>
-                    </li>
-
-                    <li id="b_navbar" class="nav-item dropdown active">
-                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            <i id="iconos" class="fas fa-tools"></i>ADMIN C/A
-                        </a>
-                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <a class="dropdown-item" href="/cartools/web/app_dev.php/comprar/">ADMIN COMPRAR</a>
-                            <a class="dropdown-item" href="/cartools/web/app_dev.php/alquiler/">ADMIN ALQUILER</a>
-                        </div>
-                    </li>
-                    <li id="b_navbar" class="nav-item">
-                        <a class="nav-link" href="/cartools/web/app_dev.php/recambios/"><i id="iconos" class="fas fa-info-circle"></i>ADMIN RECAMBIOS</a>
-                    </li>
-                    <li id="b_navbar" class="nav-item">
-                        <a class="nav-link" href="/cartools/web/app_dev.php/herramientas/"><i id="iconos" class="fas fa-info-circle"></i>ADMIN HERRAMIENTAS</a>
-                    </li>
-                </ul>
-
-                <ul class="nav navbar-nav ml-auto mr-5">
-                    {% if app.user != null %}
-                        <div class="dropdown">
-                            <button style="font-size:16px; margin-left:100%; " type="button" class="btn btn-danger dropdown-toggle" data-toggle="dropdown">
-                                {{ app.user.nombre }}
-                            </button>
-                            <div style="margin-left:90%;" class="dropdown-menu">
-                                <a style="font-size:16px; opacity:0.6;" class="dropdown-item" href="{{ path("logout")}}"><i class="fas fa-sign-out-alt"></i>Cerrar sesión</a>
-                            </div>
-                        </div>
-                    {% else %}
-                        <li style=" width:100%;" class="nav-item">
-                            <a style="font-size:18px; opacity:0.6; margin-left:30%; width:100%;"class="nav-link" href="{{ path("login")}}"><i class="fas fa-sign-in-alt"></i> INICIAR SESIÓN</a>
+    <table>
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Estado</th>
+                <th>Fechaventa</th>
+                <th>Megusta</th>
+                <th>Comentarios</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for comprar in comprars %}
+            <tr>
+                <td><a href="{{ path('comprar_show', { 'id': comprar.id }) }}">{{ comprar.id }}</a></td>
+                <td>{{ comprar.estado }}</td>
+                <td>{% if comprar.fechaVenta %}{{ comprar.fechaVenta|date('Y-m-d H:i:s') }}{% endif %}</td>
+                <td>{{ comprar.megusta }}</td>
+                <td>{{ comprar.comentarios }}</td>
+                <td>
+                    <ul>
+                        <li>
+                            <a href="{{ path('comprar_show', { 'id': comprar.id }) }}">show</a>
                         </li>
-                    {% endif %}
-                </ul>  
-            </div>    
-        </div>
-    </nav>
+                        <li>
+                            <a href="{{ path('comprar_edit', { 'id': comprar.id }) }}">edit</a>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
 
-    <hr>
-    <br><br><br>     
-
-
-
-    <!--CUERPO-->
-
-
-
-    <div style="margin-left:10%; margin-top:5%;">
-
-
-        <h1>Comprars list</h1>
-
-        <table style="margin-top:2%;">
-            <thead>
-                <tr>
-                    <th style="width:1%;">Id</th>
-                    <th style="width:1%;">Estado</th>
-                    <th style="width:1%;">Fechaventa</th>
-                    <th style="width:1%;">Actions</th>
-                </tr>
-            </thead>
-            <tbody>
-                {% for comprar in comprars %}
-                    <tr>
-                        <td><a href="{{ path('comprar_show', { 'id': comprar.id }) }}">{{ comprar.id }}</a></td>
-                        <td>{{ comprar.estado }}</td>
-                        <td>{% if comprar.fechaVenta %}{{ comprar.fechaVenta|date('Y-m-d H:i:s') }}{% endif %}</td>
-                        <td>
-                            <ul>
-                                <li>
-                                    <a href="{{ path('comprar_show', { 'id': comprar.id }) }}">show</a>
-                                </li>
-                                <li>
-                                    <a href="{{ path('comprar_edit', { 'id': comprar.id }) }}">edit</a>
-                                </li>
-                            </ul>
-                        </td>
-                    </tr>
-                {% endfor %}
-            </tbody>
-        </table>
-
-        <ul>
-            <li>
-                <a href="{{ path('comprar_new') }}">Create a new comprar</a>
-            </li>
-        </ul>
-    </div>
-
+    <ul>
+        <li>
+            <a href="{{ path('comprar_new') }}">Create a new comprar</a>
+        </li>
+    </ul>
 {% endblock %}

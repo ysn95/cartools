@@ -13,7 +13,7 @@ class ComprarType extends AbstractType
      */
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
-        $builder->add('estado')->add('fechaVenta')->add('idRecambios');
+        $builder->add('estado')->add('fechaVenta')->add('megusta')->add('comentarios')->add('idRecambios')->add('idUsuario');
     }/**
      * {@inheritdoc}
      */

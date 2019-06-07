@@ -93,12 +93,6 @@ class User implements UserInterface, \Serializable {
         $this->rol = $rol;
     }
 
-    
-    
-    
-    
-    
-    
     public function getUsername() {
         return $this->nombre;
     }

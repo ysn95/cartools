@@ -7,7 +7,7 @@ use Doctrine\ORM\Mapping as ORM;
 /**
  * Comprar
  *
- * @ORM\Table(name="comprar", indexes={@ORM\Index(name="fkk_id_recambios", columns={"id_recambios"})})
+ * @ORM\Table(name="comprar", indexes={@ORM\Index(name="fkk_id_recambios", columns={"id_recambios"}), @ORM\Index(name="id_usuario", columns={"id_usuario"})})
  * @ORM\Entity
  */
 class Comprar {
@@ -40,6 +40,20 @@ class Comprar {
     }
 
     /**
+     * @var integer
+     *
+     * @ORM\Column(name="megusta", type="integer", nullable=false)
+     */
+    private $megusta = '0';
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="comentarios", type="string", length=100, nullable=false)
+     */
+    private $comentarios;
+
+    /**
      * @var \AppBundle\Entity\Recambios
      *
      * @ORM\ManyToOne(targetEntity="AppBundle\Entity\Recambios")
@@ -48,6 +62,16 @@ class Comprar {
      * })
      */
     private $idRecambios;
+
+    /**
+     * @var \AppBundle\Entity\User
+     *
+     * @ORM\ManyToOne(targetEntity="AppBundle\Entity\User")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="id_usuario", referencedColumnName="id")
+     * })
+     */
+    private $idUsuario;
 
     function getId() {
         return $this->id;
@@ -61,8 +85,20 @@ class Comprar {
         return $this->fechaVenta;
     }
 
+    function getMegusta() {
+        return $this->megusta;
+    }
+
+    function getComentarios() {
+        return $this->comentarios;
+    }
+
     function getIdRecambios() {
         return $this->idRecambios;
+    }
+
+    function getIdUsuario() {
+        return $this->idUsuario;
     }
 
     function setId($id) {
@@ -77,8 +113,20 @@ class Comprar {
         $this->fechaVenta = $fechaVenta;
     }
 
+    function setMegusta($megusta) {
+        $this->megusta = $megusta;
+    }
+
+    function setComentarios($comentarios) {
+        $this->comentarios = $comentarios;
+    }
+
     function setIdRecambios(\AppBundle\Entity\Recambios $idRecambios) {
         $this->idRecambios = $idRecambios;
+    }
+
+    function setIdUsuario(\AppBundle\Entity\User $idUsuario) {
+        $this->idUsuario = $idUsuario;
     }
 
 }

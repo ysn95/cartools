@@ -9,7 +9,7 @@ recambios:
 recambios_productos:
     path:     /productos
     defaults: { _controller: "AppBundle:Default:recambios" }
-    
+   
 recambios_alquiler:
     path:     /utensilios
     defaults: { _controller: "AppBundle:Default:alquiler" }    

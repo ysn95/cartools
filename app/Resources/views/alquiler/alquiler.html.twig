@@ -80,38 +80,6 @@
 
 
 
-<!--AJAX-->
-        <script>
-            $(document).ready(function () {
-                $('#nombre').focus()
-
-                $('#nombre').on('keyup', function () {
-                    var search = $('#nombre').val()
-                    $.ajax({
-                        type: 'POST',
-                        url: '{{path('recambios_alquiler')}}',
-                        data: {'nombre': nombre},
-                    })
-                            .done(function (resultado) {
-                                $('#result').html(resultado)
-                                $('#result').css({"float": "left", "border-right": "1px solid black", "border-top": "1px solid black", "box-shadow": "3px 3px 3px", "opacity": "0.8", "padding-left": "5%"})
-                            })
-                            .fail(function () {
-                                alert('Hubo un error :(')
-                            })
-                })
-            })
-
-        </script>       
-        
-        
-        <div class="col-md-3 col-md-offset-3" id="result"></div>
-        
-        
-<!---->
-
-
-
         {% for herramienta in datos %}
 
             <div class="animated fadeInUp" style="width:50%;margin:4%; margin-left:25%; padding:1%;">

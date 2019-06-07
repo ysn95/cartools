@@ -17,6 +17,14 @@
                 <th>Fechaalquiler</th>
                 <td>{% if alquiler.fechaAlquiler %}{{ alquiler.fechaAlquiler|date('Y-m-d H:i:s') }}{% endif %}</td>
             </tr>
+            <tr>
+                <th>Megusta</th>
+                <td>{{ alquiler.megusta }}</td>
+            </tr>
+            <tr>
+                <th>Comentarios</th>
+                <td>{{ alquiler.comentarios }}</td>
+            </tr>
         </tbody>
     </table>
 

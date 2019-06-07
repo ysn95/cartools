@@ -7,11 +7,11 @@ use Doctrine\ORM\Mapping as ORM;
 /**
  * Alquiler
  *
- * @ORM\Table(name="alquiler", indexes={@ORM\Index(name="fk_id_recambios", columns={"id_herramientas"})})
+ * @ORM\Table(name="alquiler", indexes={@ORM\Index(name="fk_id_recambios", columns={"id_herramientas"}), @ORM\Index(name="id_usuario", columns={"id_usuario"})})
  * @ORM\Entity
  */
-class Alquiler {
-
+class Alquiler
+{
     /**
      * @var integer
      *
@@ -35,9 +35,19 @@ class Alquiler {
      */
     private $fechaAlquiler = 'CURRENT_TIMESTAMP';
 
-    public function __construct() {
-        $this->fechaAlquiler = new \DateTime();
-    }
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="megusta", type="integer", nullable=false)
+     */
+    private $megusta = '0';
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="comentarios", type="string", length=100, nullable=false)
+     */
+    private $comentarios;
 
     /**
      * @var \AppBundle\Entity\Herramientas
@@ -48,6 +58,16 @@ class Alquiler {
      * })
      */
     private $idHerramientas;
+
+    /**
+     * @var \AppBundle\Entity\User
+     *
+     * @ORM\ManyToOne(targetEntity="AppBundle\Entity\User")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="id_usuario", referencedColumnName="id")
+     * })
+     */
+    private $idUsuario;
 
     function getId() {
         return $this->id;
@@ -61,8 +81,20 @@ class Alquiler {
         return $this->fechaAlquiler;
     }
 
-    function getIdHerramientas() {
+    function getMegusta() {
+        return $this->megusta;
+    }
+
+    function getComentarios() {
+        return $this->comentarios;
+    }
+
+    function getIdHerramientas(): \AppBundle\Entity\Herramientas {
         return $this->idHerramientas;
+    }
+
+    function getIdUsuario(): \AppBundle\Entity\User {
+        return $this->idUsuario;
     }
 
     function setId($id) {
@@ -77,8 +109,22 @@ class Alquiler {
         $this->fechaAlquiler = $fechaAlquiler;
     }
 
+    function setMegusta($megusta) {
+        $this->megusta = $megusta;
+    }
+
+    function setComentarios($comentarios) {
+        $this->comentarios = $comentarios;
+    }
+
     function setIdHerramientas(\AppBundle\Entity\Herramientas $idHerramientas) {
         $this->idHerramientas = $idHerramientas;
     }
 
+    function setIdUsuario(\AppBundle\Entity\User $idUsuario) {
+        $this->idUsuario = $idUsuario;
+    }
+
+
 }
+
