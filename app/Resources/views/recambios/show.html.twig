@@ -2,10 +2,66 @@
 
 {% block body %}
 
+    <!--BARRA NAVEGACIÓN-->          
 
-<hr style="width:50%;">
+    <nav id="ali_nav" class="navbar fixed-top navbar-expand-lg navbar-light">
+        <a class="navbar-brand" href="{{path('recambios')}}"><img class="animated fadeIn" id="logo" src="{{asset('logo.png')}}"/></a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
 
-    <div class="animated fadeInUp" style="width:50%;margin:4%; margin-left:25%; padding:1%;">
+        <div id="ali_pesta">    
+            <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
+                <ul class="navbar-nav mr-auto">
+                    <li id="b_navbar"  class="nav-item">
+                        <a class="nav-link" href="{{path('recambios')}}"><i id="iconos" class="fas fa-home"></i>INICIO</a>
+                    </li>
+
+                    <li id="b_navbar" class="nav-item dropdown active">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <i id="iconos" class="fas fa-tools"></i>PRODUCTOS
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <a class="dropdown-item" href="{{path('recambios_productos')}}">Recambios</a>
+                            <a class="dropdown-item" href="{{path('recambios_alquiler')}}">Alquiler</a>
+                        </div>
+                    </li>
+                    <li id="b_navbar" class="nav-item">
+                        <a class="nav-link" href="{{path('contacto_recambios')}}"><i id="iconos" class="fas fa-info-circle"></i>CONTACTO</a>
+                    </li>
+                    <li id="b_navbar" class="nav-item">
+                        <a class="nav-link" href="{{path('informacion_recambios')}}"><i id="iconos" class="fas fa-info-circle"></i>INFORMACIÓN</a>
+                    </li>
+                </ul>
+
+                <ul class="nav navbar-nav ml-auto mr-5">
+                    {% if app.user != null %}
+                        <div class="dropdown">
+                            <button style="font-size:16px; margin-left:100%; " type="button" class="btn btn-danger dropdown-toggle" data-toggle="dropdown">
+                                {{ app.user.nombre }}
+                            </button>
+                            <div style="margin-left:90%;" class="dropdown-menu">
+                                <a style="font-size:16px; opacity:0.6;" class="dropdown-item" href="{{ path("logout")}}"><i class="fas fa-sign-out-alt"></i>Cerrar sesión</a>
+                            </div>
+                        </div>
+                    {% else %}
+                        <li style=" width:100%;" class="nav-item">
+                            <a style="font-size:18px; opacity:0.6; margin-left:40%; width:100%;"class="nav-link" href="{{ path("login")}}"><i class="fas fa-sign-in-alt"></i> INICIAR SESIÓN</a>
+                        </li>
+                    {% endif %}
+                </ul>  
+            </div>    
+        </div>
+    </nav>
+
+    <hr>
+    <br><br><br><br>
+
+
+
+
+
+    <div class="animated bounceIn" style="width:50%;margin:4%; margin-left:25%; padding:1%;">
         <p><a style="text-decoration:underline; color:black;" href="{{ path('recambios_show', { 'id': recambio.id }) }}"><h2 style="text-transform: uppercase;">{{ recambio.nombre }}</h2><img style="width:15%;" src="{{asset("imagen/" ~ recambio.marca)}}"</a></p>
         <a href="{{ path('recambios_show', { 'id': recambio.id }) }}"><img style="width:35%; border:1px solid black; padding:2%; float:right;" src="{{asset("imagen/" ~ recambio.img)}}"/></a>
 
@@ -14,13 +70,29 @@
             <br><br><br>
             <a href="{{ path('recambios_show', { 'id': recambio.id }) }}"><button type="submit" name="estado" class="btn btn-success">Comprar</button></a>
             <button type="button" class="btn btn-danger">Añadir al carrito</button>
-            <br>
+            <br><br>
         <h1 style="color:red;">{{recambio.precio}}€</h1>
         
-        <br><br>
+        
+        
+        
+        <div style="font-size:25px; float:left; margin-right:0.5%;">
+            <button type="submit" name="boton_like" class="far fa-thumbs-up"></i>
+        </div>
+        {% for like in likes %}
+            {%for lik in like%}
+                <div style="font-size:25px;">{{lik}}</div>
+            {% endfor %}
+        {% endfor %}    
 
-                <a href="{{ path('recambios_productos') }}">Volver a la página anterior</a>
-      
+        
+        
+        
+        
+        <br>
+
+        <a href="{{ path('recambios_productos') }}">Volver a la página anterior</a>
+
 
 
 
@@ -32,15 +104,38 @@
 
 <div style="margin-left:40%;">
 
-{{ form_start(form) }}
+    {{ form_start(form) }}
 
-<div style="float:left;">{{ form_widget(form) }}</div>
-<input type="submit" value="Enviar" />
+    <div style="float:left;">{{ form_widget(form) }}</div>
+    <input type="submit" value="Enviar" />
 
-{{ form_end(form) }}
+    {{ form_end(form) }}
 
 
 </div>
+
+<br><br><br>
+
+<div style="overflow:auto; width:1000px; height:150px; margin:auto; border:1px solid #cbcbcb; border-radius:1%; padding-left:0.25%; padding-top:0.1%;">
+
+    {% for comentario in datos %}
+
+        <div class="alert alert-success" role="alert" style="width:100%;"> 
+
+            <br>
+            <h5 style="text-transform:capitalize;"><i class="fas fa-user"></i> {{comentario.idUsuario}}</h5>
+            <br>
+            <h6 style="opacity: 0.7;">{{comentario.comentarios}}</h6>
+            <br>
+
+        </div>
+
+
+    {% endfor %}    
+
+</div>
+<br><br><br>
+
 
 
 {% endblock %}

@@ -70,15 +70,15 @@ class RecambiosController extends Controller {
         $deleteForm = $this->createDeleteForm($recambio);
 
         $comprar = new Comprar();
-        
+
         $usuario = $this->getUser();
-        
+
         $form = $this->createForm('AppBundle\Form\ComentariosType', $comprar);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
             $em = $this->getDoctrine()->getManager();
-            
+
             $comprar->setIdUsuario($usuario);
             $comprar->setIdRecambios($recambio);
 
@@ -87,15 +87,49 @@ class RecambiosController extends Controller {
 
 
             $em->flush();
-
         }
+
+
+
+        $em = $this->getDoctrine()->getManager();
+
+        $dql_comentarios = $em->createQuery('SELECT c FROM AppBundle:Comprar c WHERE c.idRecambios = :idrecambio')->setParameter('idrecambio', $recambio);
+
+        $comentarios = $dql_comentarios->getResult();
+
+
+        $dql_like = $em->createQuery('SELECT COUNT(c) FROM AppBundle:Comprar c WHERE c.megusta = 1 AND c.idRecambios = :idrecambio')->setParameter('idrecambio', $recambio);
+
+        $like = $dql_like->getResult();
         
-       
+        
+
+
+        $boton_like = $request->get('boton_like');
+        
+        
+        var_dump($boton_like);
+        
+        $megusta = new Comprar();
+        
+        if($boton_like!= null){
+            
+            $em = $this->getDoctrine()->getManager();
+            $megusta->setMegusta(1);
+            $megusta->setIdUsuario($usuario);
+            $megusta->setIdRecambios($recambio);
+            $em->persist($megusta);
+            $em->flush();
+           
+        }
+
+
 
         return $this->render('recambios/show.html.twig', array(
+                    'likes' => $like,
+                    'datos' => $comentarios,
                     'recambio' => $recambio,
                     'delete_form' => $deleteForm->createView(),
-                    'comentarios' => $comprar,
                     'form' => $form->createView(),
         ));
     }
