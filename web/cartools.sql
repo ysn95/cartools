@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3306
--- Generation Time: Jun 11, 2019 at 01:27 PM
+-- Generation Time: Jun 11, 2019 at 01:55 PM
 -- Server version: 5.7.26-0ubuntu0.18.04.1
 -- PHP Version: 7.2.19-0ubuntu0.18.04.1
 
@@ -102,7 +102,8 @@ CREATE TABLE `herramientas` (
 
 INSERT INTO `herramientas` (`id`, `nombre`, `contenido`, `marca`, `fecha_creacion`, `img`, `precio`, `cantidad`) VALUES
 (1, 'Llaves carracas', 'Las llaves carracas son muy útiles, para desmontar cualquier pieza de su vehiculo.', 'facom.png', '2019-05-17 07:16:00', 'carraca.jpg', '9.99', 3),
-(2, 'Diagnosis Universal', 'Nuestra diagnosis, está hecha para todo tipo de vehiculos.', 'launch.png', '2019-05-08 12:04:10', 'diagnosis.jpg', '15.99', 3);
+(2, 'Diagnosis Universal', 'Nuestra diagnosis, está hecha para todo tipo de vehiculos.', 'launch.png', '2019-05-08 12:04:10', 'diagnosis.jpg', '15.99', 3),
+(3, 'Arrancador portátil', 'Excelente arrancador para aquellos coches que necesiten bastante potencia para su arranque 12V/24V.', 'logo-bosch.jpg', '2019-06-11 13:39:00', 'bosch.jpg', '17.99', 4);
 
 -- --------------------------------------------------------
 
@@ -235,7 +236,7 @@ ALTER TABLE `comprar`
 -- AUTO_INCREMENT for table `herramientas`
 --
 ALTER TABLE `herramientas`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 --
 -- AUTO_INCREMENT for table `inventario`
 --

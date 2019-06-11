@@ -48,6 +48,9 @@ class Herramientas
      * @ORM\Column(name="fecha_creacion", type="datetime", nullable=false)
      */
     private $fechaCreacion;
+        public function __construct() {
+        $this->fechaCreacion = new \DateTime();
+    }
 
     /**
      * @var string

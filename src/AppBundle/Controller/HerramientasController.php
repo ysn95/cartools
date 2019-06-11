@@ -39,7 +39,7 @@ class HerramientasController extends Controller
      */
     public function newAction(Request $request)
     {
-        $herramienta = new Herramienta();
+        $herramienta = new Herramientas();
         $form = $this->createForm('AppBundle\Form\HerramientasType', $herramienta);
         $form->handleRequest($request);
 
