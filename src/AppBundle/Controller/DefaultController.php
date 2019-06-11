@@ -9,6 +9,7 @@ use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Response;
 use AppBundle\Entity\Comprar;
 use AppBundle\Entity\Recambios;
+use Knp\Bundle\PaginatorBundle;
 
 class DefaultController extends Controller {
 
@@ -38,8 +39,15 @@ class DefaultController extends Controller {
         }
 
 
+
+        $paginator = $this->get('knp_paginator');
+        $pagination = $paginator->paginate(
+                $datos, $request->query->getInt('page', 1), 2
+        );
+
+        
         return $this->render('recambios/recambios.html.twig', array(
-                    'datos' => $datos,
+                    'datos' => $pagination,
         ));
     }
 
@@ -91,5 +99,6 @@ class DefaultController extends Controller {
                     'users' => $users,
         ));
     }
+
 
 }

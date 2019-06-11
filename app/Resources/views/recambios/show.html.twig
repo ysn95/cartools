@@ -72,24 +72,33 @@
             <button type="button" class="btn btn-danger">Añadir al carrito</button>
             <br><br>
         <h1 style="color:red;">{{recambio.precio}}€</h1>
-        
-        
-        
-        
-        <div style="font-size:25px; float:left; margin-right:0.5%;">
-            <button type="submit" name="boton_like" class="far fa-thumbs-up"></i>
-        </div>
-        {% for like in likes %}
-            {%for lik in like%}
-                <div style="font-size:25px;">{{lik}}</div>
-            {% endfor %}
-        {% endfor %}    
 
-        
-        
-        
-        
-        <br>
+
+
+
+
+
+        <div style="font-size:25px; float:left; margin-right:0.5%;">
+
+
+            <div style="float:left; width:100%;">
+                {{ form_start(form_like) }}
+                {{ form_widget(form_like) }}
+                {{ form_end(form_like) }}
+            </div>
+
+            {% for like in likes %}
+                {% for lik in like%}
+                    <div style="font-size:20px;float:left;">{{lik}}</div>
+                {% endfor %}
+            {% endfor %}
+
+
+
+        </div>
+
+
+        <br><br><br><br><br><br>
 
         <a href="{{ path('recambios_productos') }}">Volver a la página anterior</a>
 

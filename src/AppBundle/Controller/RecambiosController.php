@@ -101,26 +101,29 @@ class RecambiosController extends Controller {
         $dql_like = $em->createQuery('SELECT COUNT(c) FROM AppBundle:Comprar c WHERE c.megusta = 1 AND c.idRecambios = :idrecambio')->setParameter('idrecambio', $recambio);
 
         $like = $dql_like->getResult();
-        
-        
 
 
-        $boton_like = $request->get('boton_like');
-        
-        
-        var_dump($boton_like);
-        
+
         $megusta = new Comprar();
-        
-        if($boton_like!= null){
-            
+
+        $form_like = $this->createForm('AppBundle\Form\LikeType', $megusta);
+        $form_like->handleRequest($request);
+
+        $opinion = "Me gusta";
+
+        if ($form_like->isSubmitted() && $form_like->isValid()) {
+
             $em = $this->getDoctrine()->getManager();
+
             $megusta->setMegusta(1);
+            $megusta->setComentarios($opinion);
             $megusta->setIdUsuario($usuario);
             $megusta->setIdRecambios($recambio);
+
+
             $em->persist($megusta);
             $em->flush();
-           
+                
         }
 
 
@@ -131,6 +134,7 @@ class RecambiosController extends Controller {
                     'recambio' => $recambio,
                     'delete_form' => $deleteForm->createView(),
                     'form' => $form->createView(),
+                    'form_like' => $form_like->createView(),
         ));
     }
 
