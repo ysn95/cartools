@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3306
--- Generation Time: Jun 10, 2019 at 02:01 PM
+-- Generation Time: Jun 11, 2019 at 01:27 PM
 -- Server version: 5.7.26-0ubuntu0.18.04.1
 -- PHP Version: 7.2.19-0ubuntu0.18.04.1
 
@@ -64,9 +64,20 @@ CREATE TABLE `comprar` (
 --
 
 INSERT INTO `comprar` (`id`, `id_recambios`, `estado`, `fecha_venta`, `id_usuario`, `megusta`, `comentarios`) VALUES
-(29, 1, 'COMPRADO', '2019-06-10 09:27:28', 1, 0, 'Buen producto, y rápido en llegar.'),
-(32, 2, 'COMPRADO', '2019-06-10 09:29:49', 1, 0, 'Producto excelente, me ha encajado a la perfección.'),
-(33, 1, 'COMPRADO', '2019-06-10 11:32:43', 1, 0, 'Buena idea, excelente producto.');
+(53, 1, 'COMPRADO', '2019-06-11 09:39:48', 1, 1, 'Me gusta'),
+(54, 1, 'COMPRADO', '2019-06-11 09:44:20', 1, 1, 'Me gusta'),
+(55, 1, 'COMPRADO', '2019-06-11 09:44:40', 1, 1, 'Me gusta'),
+(56, 1, 'COMPRADO', '2019-06-11 09:47:35', 1, 1, 'Me gusta'),
+(57, 1, 'COMPRADO', '2019-06-11 09:49:00', 1, 1, 'Me gusta'),
+(58, 1, 'COMPRADO', '2019-06-11 09:49:12', 1, 1, 'Me gusta'),
+(59, 1, 'COMPRADO', '2019-06-11 09:50:06', 1, 1, 'Me gusta'),
+(60, 1, 'COMPRADO', '2019-06-11 09:50:57', 1, 1, 'Me gusta'),
+(61, 1, 'COMPRADO', '2019-06-11 09:53:26', 1, 1, 'Me gusta'),
+(62, 1, 'COMPRADO', '2019-06-11 09:56:44', 1, 1, 'Me gusta'),
+(63, 1, 'COMPRADO', '2019-06-11 09:56:56', 1, 1, 'Me gusta'),
+(64, 1, 'COMPRADO', '2019-06-11 10:01:15', 1, 1, 'Me gusta'),
+(65, 1, 'COMPRADO', '2019-06-11 10:01:19', 1, 1, 'Me gusta'),
+(66, 1, 'COMPRADO', '2019-06-11 10:12:06', 1, 1, 'Me gusta');
 
 -- --------------------------------------------------------
 
@@ -219,7 +230,7 @@ ALTER TABLE `alquiler`
 -- AUTO_INCREMENT for table `comprar`
 --
 ALTER TABLE `comprar`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=35;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=67;
 --
 -- AUTO_INCREMENT for table `herramientas`
 --
