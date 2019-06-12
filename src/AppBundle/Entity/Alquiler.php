@@ -10,8 +10,8 @@ use Doctrine\ORM\Mapping as ORM;
  * @ORM\Table(name="alquiler", indexes={@ORM\Index(name="fk_id_recambios", columns={"id_herramientas"}), @ORM\Index(name="id_usuario", columns={"id_usuario"})})
  * @ORM\Entity
  */
-class Alquiler
-{
+class Alquiler {
+
     /**
      * @var integer
      *
@@ -34,6 +34,10 @@ class Alquiler
      * @ORM\Column(name="fecha_alquiler", type="datetime", nullable=false)
      */
     private $fechaAlquiler = 'CURRENT_TIMESTAMP';
+
+    public function __construct() {
+        $this->fechaAlquiler = new \DateTime();
+    }
 
     /**
      * @var integer
@@ -89,11 +93,11 @@ class Alquiler
         return $this->comentarios;
     }
 
-    function getIdHerramientas(): \AppBundle\Entity\Herramientas {
+    function getIdHerramientas() {
         return $this->idHerramientas;
     }
 
-    function getIdUsuario(): \AppBundle\Entity\User {
+    function getIdUsuario() {
         return $this->idUsuario;
     }
 
@@ -125,6 +129,4 @@ class Alquiler
         $this->idUsuario = $idUsuario;
     }
 
-
 }
-

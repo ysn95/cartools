@@ -93,7 +93,7 @@ class RecambiosController extends Controller {
 
         $em = $this->getDoctrine()->getManager();
 
-        $dql_comentarios = $em->createQuery('SELECT c FROM AppBundle:Comprar c WHERE c.idRecambios = :idrecambio')->setParameter('idrecambio', $recambio);
+        $dql_comentarios = $em->createQuery("SELECT c FROM AppBundle:Comprar c WHERE c.idRecambios = :idrecambio AND c.comentarios != 'Me gusta' ")->setParameter('idrecambio', $recambio);
 
         $comentarios = $dql_comentarios->getResult();
 

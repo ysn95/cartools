@@ -13,23 +13,23 @@
             </tr>
         </thead>
         <tbody>
-        {% for inventario in inventarios %}
-            <tr>
-                <td><a href="{{ path('inventario_show', { 'id': inventario.id }) }}">{{ inventario.id }}</a></td>
-                <td>{{ inventario.idRecambios }}</td>
-                <td>{{ inventario.estado }}</td>
-                <td>
-                    <ul>
-                        <li>
-                            <a href="{{ path('inventario_show', { 'id': inventario.id }) }}">show</a>
-                        </li>
-                        <li>
-                            <a href="{{ path('inventario_edit', { 'id': inventario.id }) }}">edit</a>
-                        </li>
-                    </ul>
-                </td>
-            </tr>
-        {% endfor %}
+            {% for inventario in inventarios %}
+                <tr>
+                    <td><a href="{{ path('inventario_show', { 'id': inventario.id }) }}">{{ inventario.id }}</a></td>
+                    <td>{{ inventario.idRecambios }}</td>
+                    <td>{{ inventario.estado }}</td>
+                    <td>
+                        <ul>
+                            <li>
+                                <a href="{{ path('inventario_show', { 'id': inventario.id }) }}">show</a>
+                            </li>
+                            <li>
+                                <a href="{{ path('inventario_edit', { 'id': inventario.id }) }}">edit</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+            {% endfor %}
         </tbody>
     </table>
 
@@ -38,4 +38,5 @@
             <a href="{{ path('inventario_new') }}">Create a new inventario</a>
         </li>
     </ul>
+</div>
 {% endblock %}

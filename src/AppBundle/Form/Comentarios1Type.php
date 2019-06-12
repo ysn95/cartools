@@ -5,19 +5,14 @@ namespace AppBundle\Form;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
-use Symfony\Component\Form\Extension\Core\Type\TextareaType;
-use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 
-class LikeType extends AbstractType {
+class Comentarios1Type extends AbstractType {
 
     /**
      * {@inheritdoc}
      */
     public function buildForm(FormBuilderInterface $builder, array $options) {
-        $builder->add('Like', SubmitType::class, [
-            'label' => ' Like',
-            'attr' => ['class' => 'far fa-thumbs-up alert-info '],
-        ]);
+        $builder->add('comentarios');
     }
 
     /**
@@ -25,7 +20,7 @@ class LikeType extends AbstractType {
      */
     public function configureOptions(OptionsResolver $resolver) {
         $resolver->setDefaults(array(
-            'allow_extra_fields' => true
+            'data_class' => 'AppBundle\Entity\Alquiler'
         ));
     }
 
@@ -33,7 +28,7 @@ class LikeType extends AbstractType {
      * {@inheritdoc}
      */
     public function getBlockPrefix() {
-        return 'appbundle_comprar';
+        return 'appbundle_alquiler';
     }
 
 }

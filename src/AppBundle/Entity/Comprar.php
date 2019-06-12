@@ -117,7 +117,7 @@ class Comprar {
         $this->megusta = $megusta;
     }
 
-    function setComentarios($comentarios) {
+    function setComentarios($comentarios = null) {
         $this->comentarios = $comentarios;
     }
 

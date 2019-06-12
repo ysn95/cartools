@@ -37,22 +37,22 @@
                     </li>
                 </ul>
 
-                <ul class="nav navbar-nav ml-auto mr-5">
+                <ul class="nav navbar-nav ml-auto mr-auto">
                     {% if app.user != null %}
                         <div class="dropdown">
-                            <button style="font-size:16px; margin-left:100%; " type="button" class="btn btn-danger dropdown-toggle" data-toggle="dropdown">
+                            <button style="font-size:16px; margin-left:50%; " type="button" class="btn btn-danger dropdown-toggle" data-toggle="dropdown">
                                 {{ app.user.nombre }}
                             </button>
-                            <div style="margin-left:90%;" class="dropdown-menu">
+                            <div class="dropdown-menu">
                                 <a style="font-size:16px; opacity:0.6;" class="dropdown-item" href="{{ path("logout")}}"><i class="fas fa-sign-out-alt"></i>Cerrar sesión</a>
                             </div>
                         </div>
                     {% else %}
                         <li style=" width:100%;" class="nav-item">
-                            <a style="font-size:18px; opacity:0.6; margin-left:40%; width:100%;"class="nav-link" href="{{ path("login")}}"><i class="fas fa-sign-in-alt"></i> INICIAR SESIÓN</a>
+                            <a style="font-size:18px; opacity:0.6; margin-left:20%; width:100%;"class="nav-link" href="{{ path("login")}}"><i class="fas fa-sign-in-alt"></i> INICIAR SESIÓN</a>
                         </li>
                     {% endif %}
-                </ul>  
+                </ul>   
             </div>    
         </div>
     </nav>

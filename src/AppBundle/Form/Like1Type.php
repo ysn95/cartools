@@ -5,10 +5,10 @@ namespace AppBundle\Form;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
-use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 
-class LikeType extends AbstractType {
+
+class Like1Type extends AbstractType {
 
     /**
      * {@inheritdoc}
@@ -33,7 +33,7 @@ class LikeType extends AbstractType {
      * {@inheritdoc}
      */
     public function getBlockPrefix() {
-        return 'appbundle_comprar';
+        return 'appbundle_alquiler';
     }
 
 }

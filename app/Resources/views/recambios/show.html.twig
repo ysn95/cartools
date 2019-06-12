@@ -34,19 +34,19 @@
                     </li>
                 </ul>
 
-                <ul class="nav navbar-nav ml-auto mr-5">
+                <ul class="nav navbar-nav ml-auto mr-auto">
                     {% if app.user != null %}
                         <div class="dropdown">
-                            <button style="font-size:16px; margin-left:100%; " type="button" class="btn btn-danger dropdown-toggle" data-toggle="dropdown">
+                            <button style="font-size:16px; margin-left:50%; " type="button" class="btn btn-danger dropdown-toggle" data-toggle="dropdown">
                                 {{ app.user.nombre }}
                             </button>
-                            <div style="margin-left:90%;" class="dropdown-menu">
+                            <div class="dropdown-menu">
                                 <a style="font-size:16px; opacity:0.6;" class="dropdown-item" href="{{ path("logout")}}"><i class="fas fa-sign-out-alt"></i>Cerrar sesión</a>
                             </div>
                         </div>
                     {% else %}
                         <li style=" width:100%;" class="nav-item">
-                            <a style="font-size:18px; opacity:0.6; margin-left:40%; width:100%;"class="nav-link" href="{{ path("login")}}"><i class="fas fa-sign-in-alt"></i> INICIAR SESIÓN</a>
+                            <a style="font-size:18px; opacity:0.6; margin-left:20%; width:100%;"class="nav-link" href="{{ path("login")}}"><i class="fas fa-sign-in-alt"></i> INICIAR SESIÓN</a>
                         </li>
                     {% endif %}
                 </ul>  
@@ -89,7 +89,7 @@
 
             {% for like in likes %}
                 {% for lik in like%}
-                    <div style="font-size:20px;float:left;">{{lik}}</div>
+                    <div class="ec-stars-wrapper" style="font-size:20px;float:left;">{{lik}}</div>
                 {% endfor %}
             {% endfor %}
 
@@ -115,8 +115,9 @@
 
     {{ form_start(form) }}
 
-    <div style="float:left;">{{ form_widget(form) }}</div>
-    <input type="submit" value="Enviar" />
+    <div style="width:30%; float:left;">{{ form_widget(form) }}</div>
+
+    <input style="margin-top:3.4%; margin-left:1%;" type="submit" value="Enviar" />
 
     {{ form_end(form) }}
 
@@ -143,7 +144,78 @@
     {% endfor %}    
 
 </div>
-<br><br><br>
+<br><br><br><br><br><br>
+
+<!--FOOTER-->
+
+
+<hr>
+
+<footer class="page-footer font-small blue pt-4">
+
+    <!-- Footer Links -->
+    <div class="container-fluid text-center text-md-left">
+
+        <!-- Grid row -->
+        <div  style="margin-left:3%;" class="row">
+
+            <!-- Grid column -->
+            <div class="col-md-5 mt-md-0 mt-3">
+
+                <!-- Content -->
+                <img style="width:35%;" src="{{asset('logo.png')}}"/>
+
+            </div>
+            <!-- Grid column -->
+
+            <hr class="clearfix w-100 d-md-none pb-3">
+
+            <!-- Grid column -->
+            <div class="col-md-4 mb-md-0 mb-3">
+
+                <div style="margin-top:5%;">
+
+                    <a href="https://www.facebook.com/"><i style="font-size:25px; color:#3b5998;" class="fab fa-facebook-f"></i></a>
+
+                    <a href="https://twitter.com/"><i style="font-size:25px; margin-left:5%; color:#00acee; " class="fab fa-twitter"></i></a>
+
+                    <a href="https://www.instagram.com/"><i style="font-size:25px; margin-left:5%; color:#e1306c;" class="fab fa-instagram"></i></a>
+
+                </div>
+
+
+            </div>
+            <!-- Grid column -->
+
+            <!-- Grid column -->
+            <div class="col-md-3 mb-md-0 mb-3">
+
+                <ul class="list-unstyled">
+
+                    <li style="width:80%;">
+                        Recambios de coches baratos: repuestos de coches y recambios de automóvil descuento online.
+                        <br>
+                        © 2019 Copyright:<a href="{{path('recambios')}}"> Cartools.com</a>
+
+                    </li>
+                </ul>
+
+            </div>
+            <!-- Grid column -->
+
+        </div>
+        <!-- Grid row -->
+
+    </div>
+    <!-- Footer Links -->
+
+    <!-- Copyright -->
+
+    <!-- Copyright -->
+
+</footer>
+<!-- Footer -->
+
 
 
 
