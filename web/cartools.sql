@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.6.6deb5
--- https://www.phpmyadmin.net/
+-- version 4.5.4.1deb2ubuntu2.1
+-- http://www.phpmyadmin.net
 --
--- Host: localhost:3306
--- Generation Time: Jun 11, 2019 at 01:55 PM
--- Server version: 5.7.26-0ubuntu0.18.04.1
--- PHP Version: 7.2.19-0ubuntu0.18.04.1
+-- Servidor: localhost
+-- Tiempo de generación: 16-06-2019 a las 21:08:24
+-- Versión del servidor: 5.7.25-0ubuntu0.16.04.2
+-- Versión de PHP: 7.0.33-0ubuntu0.16.04.3
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
@@ -17,13 +17,13 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `cartools`
+-- Base de datos: `cartools`
 --
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `alquiler`
+-- Estructura de tabla para la tabla `alquiler`
 --
 
 CREATE TABLE `alquiler` (
@@ -37,16 +37,31 @@ CREATE TABLE `alquiler` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
--- Dumping data for table `alquiler`
+-- Volcado de datos para la tabla `alquiler`
 --
 
 INSERT INTO `alquiler` (`id`, `id_herramientas`, `estado`, `fecha_alquiler`, `id_usuario`, `megusta`, `comentarios`) VALUES
-(1, 1, 'alquilado', '2019-06-07 07:15:26', 1, 0, '');
+(1, 1, 'alquilado', '2019-06-07 07:15:26', 1, 0, ''),
+(2, 1, 'ALQUILADO', '2019-06-12 10:50:00', 1, 0, 'sdffds'),
+(3, 1, 'ALQUILADO', '2019-06-16 11:45:09', 1, 0, 'Me gusta'),
+(4, 1, 'ALQUILADO', '2019-06-12 20:52:54', 1, 0, 'Buenas herramientas.'),
+(5, 1, 'ALQUILADO', '2019-06-16 11:45:09', 1, 0, 'Me gusta'),
+(6, 2, 'ALQUILADO', '2019-06-12 20:55:33', 1, 0, 'Buen producto'),
+(7, 2, 'ALQUILADO', '2019-06-12 20:55:33', 1, 1, 'Me gusta'),
+(8, 1, 'ALQUILADO', '2019-06-16 11:45:09', 1, 0, 'Me gusta'),
+(9, 1, 'ALQUILADO', '2019-06-16 11:45:22', 1, 0, 'Me gusta'),
+(10, 1, 'ALQUILADO', '2019-06-16 11:45:40', 1, 0, 'Buen producto.'),
+(11, 1, 'ALQUILADO', '2019-06-16 19:00:21', 1, 0, 'Me gusta'),
+(12, 1, 'ALQUILADO', '2019-06-16 11:48:03', 1, 0, 'Hola.'),
+(13, 1, 'ALQUILADO', '2019-06-16 19:00:32', 1, 1, 'Me gusta'),
+(14, 1, 'ALQUILADO', '2019-06-16 19:00:47', 1, 0, 'Hola carracas.'),
+(15, 1, 'ALQUILADO', '2019-06-16 19:04:00', 2, 0, 'Me gusta'),
+(16, 1, 'ALQUILADO', '2019-06-16 19:04:06', 2, 1, 'Me gusta');
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `comprar`
+-- Estructura de tabla para la tabla `comprar`
 --
 
 CREATE TABLE `comprar` (
@@ -60,29 +75,45 @@ CREATE TABLE `comprar` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
--- Dumping data for table `comprar`
+-- Volcado de datos para la tabla `comprar`
 --
 
 INSERT INTO `comprar` (`id`, `id_recambios`, `estado`, `fecha_venta`, `id_usuario`, `megusta`, `comentarios`) VALUES
-(53, 1, 'COMPRADO', '2019-06-11 09:39:48', 1, 1, 'Me gusta'),
-(54, 1, 'COMPRADO', '2019-06-11 09:44:20', 1, 1, 'Me gusta'),
-(55, 1, 'COMPRADO', '2019-06-11 09:44:40', 1, 1, 'Me gusta'),
-(56, 1, 'COMPRADO', '2019-06-11 09:47:35', 1, 1, 'Me gusta'),
-(57, 1, 'COMPRADO', '2019-06-11 09:49:00', 1, 1, 'Me gusta'),
-(58, 1, 'COMPRADO', '2019-06-11 09:49:12', 1, 1, 'Me gusta'),
-(59, 1, 'COMPRADO', '2019-06-11 09:50:06', 1, 1, 'Me gusta'),
-(60, 1, 'COMPRADO', '2019-06-11 09:50:57', 1, 1, 'Me gusta'),
-(61, 1, 'COMPRADO', '2019-06-11 09:53:26', 1, 1, 'Me gusta'),
-(62, 1, 'COMPRADO', '2019-06-11 09:56:44', 1, 1, 'Me gusta'),
-(63, 1, 'COMPRADO', '2019-06-11 09:56:56', 1, 1, 'Me gusta'),
-(64, 1, 'COMPRADO', '2019-06-11 10:01:15', 1, 1, 'Me gusta'),
-(65, 1, 'COMPRADO', '2019-06-11 10:01:19', 1, 1, 'Me gusta'),
-(66, 1, 'COMPRADO', '2019-06-11 10:12:06', 1, 1, 'Me gusta');
+(122, 4, 'COMPRADO', '2019-06-16 09:35:09', 1, 0, 'Me gusta'),
+(123, 1, 'COMPRADO', '2019-06-16 09:35:20', 1, 0, 'Me gusta'),
+(124, 1, 'COMPRADO', '2019-06-16 09:35:33', 1, 0, 'Me gusta'),
+(125, 1, 'COMPRADO', '2019-06-16 09:47:16', 1, 0, 'Me gusta'),
+(126, 1, 'COMPRADO', '2019-06-16 09:47:45', 1, 0, 'El producto ha sido bastante bueno.'),
+(127, 1, 'COMPRADO', '2019-06-16 09:47:59', 1, 0, 'Me gusta'),
+(128, 1, 'COMPRADO', '2019-06-16 09:48:11', 1, 0, 'Somos buena gente.'),
+(129, 1, 'COMPRADO', '2019-06-16 09:49:40', 1, 0, 'Me gusta'),
+(130, 1, 'COMPRADO', '2019-06-16 09:49:58', 1, 0, 'Un producto excelente.'),
+(131, 1, 'COMPRADO', '2019-06-16 09:52:42', 1, 0, 'Me gusta'),
+(132, 1, 'COMPRADO', '2019-06-16 09:52:41', 1, 0, 'que tiene que ver?'),
+(133, 1, 'COMPRADO', '2019-06-16 09:53:50', 1, 0, 'Me gusta'),
+(134, 1, 'COMPRADO', '2019-06-16 09:53:50', 1, 0, 'El producto ha sido bastante bueno.'),
+(135, 1, 'COMPRADO', '2019-06-16 09:54:33', 1, 0, 'Me gusta'),
+(136, 1, 'COMPRADO', '2019-06-16 09:54:40', 1, 0, 'Me gusta'),
+(137, 1, 'COMPRADO', '2019-06-16 09:54:48', 1, 0, 'Me gusta'),
+(138, 1, 'COMPRADO', '2019-06-16 09:55:24', 1, 0, 'Me gusta'),
+(139, 1, 'COMPRADO', '2019-06-16 10:06:02', 1, 0, 'Me gusta'),
+(140, 1, 'COMPRADO', '2019-06-16 09:59:49', 1, 0, 'hola'),
+(141, 1, 'COMPRADO', '2019-06-16 10:06:02', 1, 0, 'Me gusta'),
+(142, 1, 'COMPRADO', '2019-06-16 10:06:02', 1, 0, 'Me gusta'),
+(143, 1, 'COMPRADO', '2019-06-16 10:07:16', 1, 0, 'Me gusta'),
+(144, 1, 'COMPRADO', '2019-06-16 10:07:16', 1, 0, 'Que bueno!'),
+(145, 1, 'COMPRADO', '2019-06-16 11:25:25', 1, 0, 'Me gusta'),
+(146, 1, 'COMPRADO', '2019-06-16 11:24:54', 1, 0, 'Un producto excelente.'),
+(147, 1, 'COMPRADO', '2019-06-16 18:33:01', 1, 0, 'Me gusta'),
+(148, 1, 'COMPRADO', '2019-06-16 18:26:08', 2, 1, 'Me gusta'),
+(149, 1, 'COMPRADO', '2019-06-16 18:34:37', 1, 0, 'Me gusta'),
+(150, 1, 'COMPRADO', '2019-06-16 18:51:38', 1, 0, 'Me gusta'),
+(151, 1, 'COMPRADO', '2019-06-16 18:51:44', 1, 0, 'Me gusta');
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `herramientas`
+-- Estructura de tabla para la tabla `herramientas`
 --
 
 CREATE TABLE `herramientas` (
@@ -97,7 +128,7 @@ CREATE TABLE `herramientas` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `herramientas`
+-- Volcado de datos para la tabla `herramientas`
 --
 
 INSERT INTO `herramientas` (`id`, `nombre`, `contenido`, `marca`, `fecha_creacion`, `img`, `precio`, `cantidad`) VALUES
@@ -108,7 +139,7 @@ INSERT INTO `herramientas` (`id`, `nombre`, `contenido`, `marca`, `fecha_creacio
 -- --------------------------------------------------------
 
 --
--- Table structure for table `inventario`
+-- Estructura de tabla para la tabla `inventario`
 --
 
 CREATE TABLE `inventario` (
@@ -122,7 +153,7 @@ CREATE TABLE `inventario` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `recambios`
+-- Estructura de tabla para la tabla `recambios`
 --
 
 CREATE TABLE `recambios` (
@@ -137,7 +168,7 @@ CREATE TABLE `recambios` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
--- Dumping data for table `recambios`
+-- Volcado de datos para la tabla `recambios`
 --
 
 INSERT INTO `recambios` (`id`, `nombre`, `contenido`, `marca`, `fecha_creacion`, `img`, `precio`, `cantidad`) VALUES
@@ -150,7 +181,7 @@ INSERT INTO `recambios` (`id`, `nombre`, `contenido`, `marca`, `fecha_creacion`,
 -- --------------------------------------------------------
 
 --
--- Table structure for table `user`
+-- Estructura de tabla para la tabla `user`
 --
 
 CREATE TABLE `user` (
@@ -162,7 +193,7 @@ CREATE TABLE `user` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
--- Dumping data for table `user`
+-- Volcado de datos para la tabla `user`
 --
 
 INSERT INTO `user` (`id`, `nombre`, `email`, `password`, `rol`) VALUES
@@ -171,11 +202,11 @@ INSERT INTO `user` (`id`, `nombre`, `email`, `password`, `rol`) VALUES
 (3, 'ysn', 'info@info.com', '$2y$04$9LWaEQH/aMyE42K3SqAsme2cFfcO7/3LuHQ./Gkkf/eJ0bpsjbNsG', 'ROLE_USER');
 
 --
--- Indexes for dumped tables
+-- Índices para tablas volcadas
 --
 
 --
--- Indexes for table `alquiler`
+-- Indices de la tabla `alquiler`
 --
 ALTER TABLE `alquiler`
   ADD PRIMARY KEY (`id`),
@@ -183,7 +214,7 @@ ALTER TABLE `alquiler`
   ADD KEY `FK_655BED39FCF8192D` (`id_usuario`);
 
 --
--- Indexes for table `comprar`
+-- Indices de la tabla `comprar`
 --
 ALTER TABLE `comprar`
   ADD PRIMARY KEY (`id`),
@@ -191,13 +222,13 @@ ALTER TABLE `comprar`
   ADD KEY `id_usuario` (`id_usuario`);
 
 --
--- Indexes for table `herramientas`
+-- Indices de la tabla `herramientas`
 --
 ALTER TABLE `herramientas`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `inventario`
+-- Indices de la tabla `inventario`
 --
 ALTER TABLE `inventario`
   ADD PRIMARY KEY (`id`),
@@ -206,72 +237,72 @@ ALTER TABLE `inventario`
   ADD KEY `unic_fecha_venta` (`fecha_venta`);
 
 --
--- Indexes for table `recambios`
+-- Indices de la tabla `recambios`
 --
 ALTER TABLE `recambios`
   ADD PRIMARY KEY (`id`),
   ADD UNIQUE KEY `fecha_venta` (`fecha_creacion`);
 
 --
--- Indexes for table `user`
+-- Indices de la tabla `user`
 --
 ALTER TABLE `user`
   ADD PRIMARY KEY (`id`);
 
 --
--- AUTO_INCREMENT for dumped tables
+-- AUTO_INCREMENT de las tablas volcadas
 --
 
 --
--- AUTO_INCREMENT for table `alquiler`
+-- AUTO_INCREMENT de la tabla `alquiler`
 --
 ALTER TABLE `alquiler`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
 --
--- AUTO_INCREMENT for table `comprar`
+-- AUTO_INCREMENT de la tabla `comprar`
 --
 ALTER TABLE `comprar`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=67;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=152;
 --
--- AUTO_INCREMENT for table `herramientas`
+-- AUTO_INCREMENT de la tabla `herramientas`
 --
 ALTER TABLE `herramientas`
   MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 --
--- AUTO_INCREMENT for table `inventario`
+-- AUTO_INCREMENT de la tabla `inventario`
 --
 ALTER TABLE `inventario`
   MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
 --
--- AUTO_INCREMENT for table `recambios`
+-- AUTO_INCREMENT de la tabla `recambios`
 --
 ALTER TABLE `recambios`
   MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 --
--- AUTO_INCREMENT for table `user`
+-- AUTO_INCREMENT de la tabla `user`
 --
 ALTER TABLE `user`
   MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 --
--- Constraints for dumped tables
+-- Restricciones para tablas volcadas
 --
 
 --
--- Constraints for table `alquiler`
+-- Filtros para la tabla `alquiler`
 --
 ALTER TABLE `alquiler`
   ADD CONSTRAINT `FK_655BED39CEC23C14` FOREIGN KEY (`id_herramientas`) REFERENCES `herramientas` (`id`),
   ADD CONSTRAINT `FK_655BED39FCF8192D` FOREIGN KEY (`id_usuario`) REFERENCES `user` (`id`);
 
 --
--- Constraints for table `comprar`
+-- Filtros para la tabla `comprar`
 --
 ALTER TABLE `comprar`
   ADD CONSTRAINT `FK_4195D121C5764CB7` FOREIGN KEY (`id_recambios`) REFERENCES `recambios` (`id`),
   ADD CONSTRAINT `FK_4195D121FCF8192D` FOREIGN KEY (`id_usuario`) REFERENCES `user` (`id`);
 
 --
--- Constraints for table `inventario`
+-- Filtros para la tabla `inventario`
 --
 ALTER TABLE `inventario`
   ADD CONSTRAINT `FK_6A194EF51B14C0F7` FOREIGN KEY (`fecha_venta`) REFERENCES `recambios` (`fecha_creacion`),
