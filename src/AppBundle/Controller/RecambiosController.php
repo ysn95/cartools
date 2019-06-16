@@ -98,7 +98,7 @@ class RecambiosController extends Controller {
         $comentarios = $dql_comentarios->getResult();
 
 
-        $dql_like = $em->createQuery('SELECT COUNT(c) FROM AppBundle:Comprar c WHERE c.megusta = 1 AND c.idRecambios = :idrecambio AND c.idUsuario = :idusuario')->setParameter('idrecambio', $recambio)->setParameter('idusuario', $usuario);
+        $dql_like = $em->createQuery("SELECT COUNT(c) FROM AppBundle:Comprar c WHERE c.megusta = 1 AND c.idRecambios = :idrecambio AND c.idUsuario = :idusuario")->setParameter('idrecambio', $recambio)->setParameter('idusuario', $usuario);
 
         $like = $dql_like->getResult();
 
@@ -108,8 +108,11 @@ class RecambiosController extends Controller {
         $form_like->handleRequest($request);
 
         $opinion = "Me gusta";
+        ;
 
-        if ($form_like->isSubmitted() && $form_like->isValid() && $like <=1) {
+        $result_like = $like[0][1];
+
+        if ($form_like->isSubmitted() && $form_like->isValid() && $result_like == 0) {
 
             $em = $this->getDoctrine()->getManager();
             $megusta->setMegusta(1);
@@ -120,7 +123,16 @@ class RecambiosController extends Controller {
 
             $em->persist($megusta);
             $em->flush();
-                
+        } 
+        
+        if($form_like->isSubmitted() && $form_like->isValid() && $result_like >= 1) {
+
+            $em = $this->getDoctrine()->getManager();
+            
+            $dql_nolike=$em->createQuery("UPDATE AppBundle:Comprar c SET c.megusta = 0 WHERE c.megusta = 1 AND c.idRecambios = :idrecambio AND c.idUsuario = :idusuario")
+                    ->setParameter('idrecambio', $recambio)->setParameter('idusuario', $usuario);
+            
+            $resultado = $dql_nolike->execute();
         }
 
 

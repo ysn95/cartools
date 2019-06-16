@@ -7,7 +7,6 @@ use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 
-
 class Like1Type extends AbstractType {
 
     /**
@@ -25,7 +24,7 @@ class Like1Type extends AbstractType {
      */
     public function configureOptions(OptionsResolver $resolver) {
         $resolver->setDefaults(array(
-            'allow_extra_fields' => true
+            'data_class' => 'AppBundle\Entity\Alquiler'
         ));
     }
 

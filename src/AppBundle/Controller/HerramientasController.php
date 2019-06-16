@@ -97,7 +97,7 @@ class HerramientasController extends Controller {
         $comentarios = $dql_comentarios->getResult();
 
 
-        $dql_like = $em->createQuery('SELECT COUNT(a) FROM AppBundle:Alquiler a WHERE a.megusta = 1 AND a.idHerramientas = :idherramienta')->setParameter('idherramienta', $herramienta);
+        $dql_like = $em->createQuery('SELECT COUNT(a) FROM AppBundle:Alquiler a WHERE a.megusta = 1 AND a.idHerramientas = :idherramienta AND a.idUsuario = :idusuario')->setParameter('idherramienta', $herramienta)->setParameter('idusuario', $usuario);
 
         $like = $dql_like->getResult();
 
@@ -110,7 +110,10 @@ class HerramientasController extends Controller {
 
         $opinion = "Me gusta";
 
-        if ($form_like->isSubmitted() && $form_like->isValid()) {
+        $result_like = $like[0][1];
+
+
+        if ($form_like->isSubmitted() && $form_like->isValid() && $result_like == 0) {
 
             $em = $this->getDoctrine()->getManager();
 
@@ -123,7 +126,15 @@ class HerramientasController extends Controller {
             $em->persist($megusta);
             $em->flush();
         }
+        
+        if ($form_like->isSubmitted() && $form_like->isValid() && $result_like >= 1) {
 
+            $em = $this->getDoctrine()->getManager();
+
+            $dql_nolike = $em->createQuery("UPDATE AppBundle:Alquiler a SET a.megusta = 0 WHERE a.megusta = 1 AND a.idHerramientas = :idherramienta AND a.idUsuario = :idusuario")->setParameter('idherramienta', $herramienta)->setParameter('idusuario', $usuario);
+
+            $resultado = $dql_nolike->execute();
+        }
 
 
 
