@@ -98,11 +98,9 @@ class RecambiosController extends Controller {
         $comentarios = $dql_comentarios->getResult();
 
 
-        $dql_like = $em->createQuery('SELECT COUNT(c) FROM AppBundle:Comprar c WHERE c.megusta = 1 AND c.idRecambios = :idrecambio')->setParameter('idrecambio', $recambio);
+        $dql_like = $em->createQuery('SELECT COUNT(c) FROM AppBundle:Comprar c WHERE c.megusta = 1 AND c.idRecambios = :idrecambio AND c.idUsuario = :idusuario')->setParameter('idrecambio', $recambio)->setParameter('idusuario', $usuario);
 
         $like = $dql_like->getResult();
-
-
 
         $megusta = new Comprar();
 
@@ -111,10 +109,9 @@ class RecambiosController extends Controller {
 
         $opinion = "Me gusta";
 
-        if ($form_like->isSubmitted() && $form_like->isValid()) {
+        if ($form_like->isSubmitted() && $form_like->isValid() && $like <=1) {
 
             $em = $this->getDoctrine()->getManager();
-
             $megusta->setMegusta(1);
             $megusta->setComentarios($opinion);
             $megusta->setIdUsuario($usuario);

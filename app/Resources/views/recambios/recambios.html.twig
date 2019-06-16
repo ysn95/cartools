@@ -90,7 +90,6 @@
                     <br><br>{% if recambio.fechaCreacion %}{{ recambio.fechaCreacion|date('Y-m-d H:i:s') }}{% endif %}
                     <br><br><br>
                     <a href="{{ path('recambios_show', { 'id': recambio.id }) }}"><button type="submit" name="estado" class="btn btn-success">Comprar</button></a>
-                    <button type="button" class="btn btn-danger">Añadir al carrito</button>
                     <br>
                 <h1 style="color:red;">{{recambio.precio}}€</h1>
 

@@ -68,8 +68,7 @@
         <p style="width:20%; margin-top:5%; font-size:20px;width:50%; text-align:left;">{{herramienta.contenido}}
             <br><br>{% if herramienta.fechaCreacion %}{{ herramienta.fechaCreacion|date('Y-m-d H:i:s') }}{% endif %}
             <br><br><br>
-            <a href="{{ path('herramientas_show', { 'id': herramienta.id }) }}"><button type="submit" name="estado" class="btn btn-success">Comprar</button></a>
-            <button type="button" class="btn btn-danger">Añadir al carrito</button>
+            <a href="{{ path('herramientas_show', { 'id': herramienta.id }) }}"><button type="submit" name="estado" class="btn btn-success">Alquilar</button></a>
             <br><br>
         <h1 style="color:red;">{{herramienta.precio}}€</h1>
 

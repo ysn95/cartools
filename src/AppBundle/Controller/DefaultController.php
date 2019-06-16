@@ -45,7 +45,7 @@ class DefaultController extends Controller {
                 $datos, $request->query->getInt('page', 1), 2
         );
 
-        
+
         return $this->render('recambios/recambios.html.twig', array(
                     'datos' => $pagination,
         ));
@@ -65,12 +65,12 @@ class DefaultController extends Controller {
             $datos = $query->getResult();
         }
 
-                $paginator = $this->get('knp_paginator');
+        $paginator = $this->get('knp_paginator');
         $pagination = $paginator->paginate(
                 $datos, $request->query->getInt('page', 1), 2
         );
-        
-        
+
+
         return $this->render('alquiler/alquiler.html.twig', array(
                     'datos' => $pagination,
         ));
@@ -106,5 +106,6 @@ class DefaultController extends Controller {
         ));
     }
 
+ 
 
 }
