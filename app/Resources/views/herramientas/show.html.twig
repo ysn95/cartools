@@ -68,36 +68,34 @@
         <p style="width:20%; margin-top:5%; font-size:20px;width:50%; text-align:left;">{{herramienta.contenido}}
             <br><br>{% if herramienta.fechaCreacion %}{{ herramienta.fechaCreacion|date('Y-m-d H:i:s') }}{% endif %}
             <br><br><br>
-            <a href="{{ path('herramientas_show', { 'id': herramienta.id }) }}"><button type="submit" name="estado" class="btn btn-success">Alquilar</button></a>
-            <br><br>
-        <h1 style="color:red;">{{herramienta.precio}}€</h1>
+            <a style="float:left; margin-top:5%;" href="https://www.paypal.com/es/signin"><button style="padding:11%;" type="submit" name="estado" class="btn btn-success"><i class="fas fa-shopping-cart"></i>Alquilar</button></a>
 
 
+        <div style="float:left; width:10%; margin-left:2%; margin-top:0.25%;">
 
 
+            {{ form_start(form_like) }}
+            {{ form_widget(form_like) }}
+            {{ form_end(form_like) }}
+        </div>
 
+        <div style="float:left; font-size:20px; margin:2%; opactity:0.2;">
 
-        <div style="font-size:25px; float:left; margin-right:0.5%;">
-
-
-            <div style="float:left; width:100%;">
-                {{ form_start(form_like) }}
-                {{ form_widget(form_like) }}
-                {{ form_end(form_like) }}
-            </div>
-
-            {% for like in likes %}
-                {% for lik in like%}
-                    <div class="ec-stars-wrapper" style="font-size:20px;float:left;">{{lik}}</div>
+            {% for gusta in likes%}
+                {%for like in gusta%}
+                    <div style="opacity: 0.5;">{{like}}</div>
                 {% endfor %}
             {% endfor %}
-
-
 
         </div>
 
 
-        <br><br><br><br><br><br>
+
+        <br><br><br>
+        <h1 style="color:red;">{{herramienta.precio}}€</h1>
+
+
+        <br>
 
         <a href="{{ path('recambios_alquiler') }}">Volver a la página anterior</a>
 

@@ -68,42 +68,31 @@
         <p style="width:20%; margin-top:5%; font-size:20px;width:50%; text-align:left;">{{recambio.contenido}}
             <br><br>{% if recambio.fechaCreacion %}{{ recambio.fechaCreacion|date('Y-m-d H:i:s') }}{% endif %}
             <br><br><br>
-            <a style="float:left; margin-top:5%;" href="{{ path('recambios_show', { 'id': recambio.id }) }}"><button type="submit" name="estado" class="btn btn-success">Comprar</button></a>
+            <a style="float:left; margin-top:5%;" href="https://www.paypal.com/es/signin"><button style="padding:11%;" type="submit" name="estado" class="btn btn-success"><i class="fas fa-shopping-cart"></i>Comprar</button></a>
 
-        <div style="font-size:25px; float:left; margin-right:0.5%;">
-
-
-            <div style="float:left; margin-left:15%; width:100%;">
+        <div style="float:left; width:10%; margin-left:2%; margin-top:0.25%;">
 
 
-                {{ form_start(form_like) }}
-                {{ form_widget(form_like) }}
-                {{ form_end(form_like) }}
+            {{ form_start(form_like) }}
+            {{ form_widget(form_like) }}
+            {{ form_end(form_like) }}
+        </div>
 
+        <div style="float:left; font-size:20px; margin:2%; opactity:0.2;">
 
-
-                {% for gusta in likes%}
-                    {%for like in gusta%}
-                        {{like}}
-                    {% endfor %}
+            {% for gusta in likes%}
+                {%for like in gusta%}
+                    <div style="opacity: 0.5;">{{like}}</div>
                 {% endfor %}
-
-            </div>
-
+            {% endfor %}
 
         </div>
 
-        <br><br><br><br>
+
+        <br><br><br>
         <h1 style="color:red;">{{recambio.precio}}€</h1>
 
-
-
-
-
-
-
-
-        <br><br>
+        <br>
 
         <a href="{{ path('recambios_productos') }}">Volver a la página anterior</a>
 

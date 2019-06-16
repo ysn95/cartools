@@ -126,7 +126,7 @@ class HerramientasController extends Controller {
             $em->persist($megusta);
             $em->flush();
         }
-        
+
         if ($form_like->isSubmitted() && $form_like->isValid() && $result_like >= 1) {
 
             $em = $this->getDoctrine()->getManager();
@@ -136,11 +136,13 @@ class HerramientasController extends Controller {
             $resultado = $dql_nolike->execute();
         }
 
-
+        $comentarios_totales = $em->createQuery('SELECT COUNT(a) FROM AppBundle:Alquiler a WHERE a.megusta = 1 AND a.idHerramientas = :idherramienta ')
+                ->setParameter('idherramienta', $herramienta);
+        $resultado_comentarios_totales = $comentarios_totales->getResult();
 
 
         return $this->render('herramientas/show.html.twig', array(
-                    'likes' => $like,
+                    'likes' => $resultado_comentarios_totales,
                     'datos' => $comentarios,
                     'herramienta' => $herramienta,
                     'delete_form' => $deleteForm->createView(),

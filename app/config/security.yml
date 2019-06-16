@@ -34,8 +34,6 @@ security:
 
     access_control:
         - { path: ^/admin, roles: ROLE_ADMIN }
-        - { path: ^/recambios, roles: ROLE_ADMIN }
-        - { path: ^/herramientas, roles: ROLE_ADMIN }
         - { path: ^/alquiler, roles: ROLE_ADMIN }
         - { path: ^/comprar, roles: ROLE_ADMIN }
         - { path: ^/inventario, roles: ROLE_ADMIN }

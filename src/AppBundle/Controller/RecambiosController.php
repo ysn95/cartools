@@ -137,8 +137,13 @@ class RecambiosController extends Controller {
 
 
 
+        $comentarios_totales=$em->createQuery('SELECT COUNT(c) FROM AppBundle:Comprar c WHERE c.megusta = 1 AND c.idRecambios = :idrecambio ')
+                ->setParameter('idrecambio', $recambio);
+        $resultado_comentarios_totales=$comentarios_totales->getResult();
+        
+        
         return $this->render('recambios/show.html.twig', array(
-                    'likes' => $like,
+                    'likes' => $resultado_comentarios_totales,
                     'datos' => $comentarios,
                     'recambio' => $recambio,
                     'delete_form' => $deleteForm->createView(),
